@@ -3,7 +3,9 @@
 {% block title %}Dyr!!{% endblock %}
 
   {% block body_block %}
-    <h4>Ordnet efter ankomst</h>
+    <div class="greyfield">
+    <div class="container">
+    <h4>Vores dyr</h4>
     {% if animal_list %}
       <table class="u-full-width">
         <thead>
@@ -28,9 +30,92 @@
     {% else %}
       <p>Vi har ingen dyr :(</p>
     {% endif %}
-    <ul>
-    {% for animal in animals %}
-        <li>{{ animal }}</li>
-    {% endfor %}
-    </ul>
+    </div>
+    </div>
+
+    <div class="container">
+      <div class"row">
+        <div class="one-half column">
+          <h4>Seneste foderindkøb</h4>
+          {% if food_list %}
+            <table class="u-full-width">
+              <thead>
+                <tr>
+                  <th>Dato</th>
+                  <th>Produkt</th>
+                  <th>Mængde</th>
+                  <th>Pris</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for food in food_list %}
+                <tr>
+                  <td>{{ food.food_date }}</td>
+                  <td>{{ food.food_product }}</td>
+                  <td>{{ food.food_amount }} kg</td>
+                  <td>{{ food.food_price }} kr</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p>Vi har ikke købt noget foder...</p>
+          {% endif %}
+        </div>
+
+        <div class="one-half column">
+          <h4>Andre indkøb</h4>
+          {% if misc_list %}
+            <table class="u-full-width">
+              <thead>
+                <tr>
+                  <th>Dato</th>
+                  <th>Produkt</th>
+                  <th>Pris</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for misc in misc_list %}
+                <tr>
+                  <td>{{ misc.misc_date }}</td>
+                  <td>{{ misc.misc_product }}</td>
+                  <td>{{ misc.misc_price }} kr</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <p>Vi har ikke købt noget...</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="greyfield">
+    <div class="container">
+      <div class="row">
+        <div class="one-half column">
+          <h4>Den sidste uges æg</h4>
+          {% if eggs_list %}
+            <div class="graph">
+              {% for egg in eggs_list %}
+                <div class="bar">
+                  <div class="movedown">{{ egg.egg_amount }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p> Vi har ingen æg!!</p>
+          {% endif %}
+        </div>
+        <div class="one-half column">
+          <h4>Fryser</h4>
+          {% if freezer_list %}
+          {% else %}
+            <p>Ingen mad i fryseren :(</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    </div>
   {% endblock %}

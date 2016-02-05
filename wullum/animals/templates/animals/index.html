@@ -3,14 +3,34 @@
 {% block title %}Dyr!!{% endblock %}
 
   {% block body_block %}
-    <p>Ordnet efter ankomst</p>
+    <h4>Ordnet efter ankomst</h>
     {% if animal_list %}
-      <ul>
-        {% for animal in animal_list %}
-          <li>{{ animal.animal_name }}</li>
-        {% endfor %}
-      </ul>
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Navn</th>
+            <th>Art</th>
+            <th>Født</th>
+            <th>Kendetegn</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for animal in animal_list %}
+          <tr>
+            <td>{{ animal.animal_name }}</td>
+            <td>{{ animal.species }}</td>
+            <td>{{ animal.born }}</td>
+            <td>{{ animal.animal_characteristics }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     {% else %}
       <p>Vi har ingen dyr :(</p>
     {% endif %}
+    <ul>
+    {% for animal in animals %}
+        <li>{{ animal }}</li>
+    {% endfor %}
+    </ul>
   {% endblock %}

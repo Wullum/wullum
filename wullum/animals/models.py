@@ -17,7 +17,7 @@ class Animals(models.Model):
     genotype = models.CharField(max_length = 50)
 
     def __str__(self):
-        return self.animal_name
+        return '%s %s %s' (self.animal_name, self.species, self.animal_characteristics)
 
     class Meta:
         verbose_name_plural = "Animals"

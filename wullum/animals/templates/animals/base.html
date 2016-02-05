@@ -4,16 +4,23 @@
   <head>
     <metacharset="UTF-8">
     <title>Wullum - {% block title %}Dyr!!{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'animals/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'animals/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'animals/styles.css' %}" />
-
   </head>
 
   <body>
   <div id="container">
     <div id="topbar">
-      <h1>Vores Dyr</h1>
+      <div class="container">
+        <div class="row">
+          <div class="twelve columns">
+          <h2>Vores Dyr</h2>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
+    <div class="container">
     {% block body_block %}{% endblock%}
     </div>
   </div>

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Animals, FoodPurchases, MiscPurchases, Eggs
+from .forms import AddAnimal
+
 
 # Create your views here.
 def index(request):
@@ -13,4 +15,25 @@ def index(request):
 
     eggs_list = Eggs.objects.order_by('-egg_date')[:7]
 
-    return render(request, 'animals/index.html', {'animal_list': animal_list, 'food_list': food_list, 'misc_list': misc_list, 'eggs_list': eggs_list})
+    return render(request, 'animals/index.html',
+                  {'animal_list': animal_list, 'food_list': food_list, 'misc_list': misc_list, 'eggs_list': eggs_list})
+
+
+def all(request):
+    animal_list = Animals.objects.order_by('-arrived')
+
+    if request.method == 'POST':
+        form = AddAnimal(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+
+            return index(request)
+
+        else:
+            print(form.errors)
+
+    else:
+        form = AddAnimal()
+
+    return render(request, 'animals/all.html', {'animal_list': animal_list, 'form': form})

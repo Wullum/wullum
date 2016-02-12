@@ -16,8 +16,7 @@ class Animals(models.Model):
     blue_eyed_white = models.CharField(max_length=50)
     genotype = models.CharField(max_length = 50)
 
-    def __str__(self):
-        return '%s %s %s' (self.animal_name, self.species, self.animal_characteristics)
+
 
     class Meta:
         verbose_name_plural = "Animals"

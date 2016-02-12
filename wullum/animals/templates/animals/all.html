@@ -1,0 +1,136 @@
+{% extends 'animals/base.html' %}
+
+{% block title %}Dyr!!{% endblock %}
+
+{% block body_block %}
+    <div class="greyfield">
+    <div class="container">
+        <h4>Tilføj dyr</h4>
+
+        <form id="add_animal" method="post" action="/animals/all/">
+            <div class="row">
+            <div class="six columns">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for hidden in form.hidden_fields %}
+                {{  hidden }}
+            {% endfor %}
+
+            <div class="fieldWrapper">
+                <label for="name">{{ form.animal_name.help_text }}</label>
+                {{ form.animal_name }}
+            </div>
+            </div>
+            <div class="six columns">
+            <div class="fieldWrapper">
+                <label for="{{ form.species.id_for_label }}">{{ form.species.help_text }}</label>
+                {{ form.species }}
+            </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="six columns">
+                 <div class="fieldWrapper">
+                <label for="{{ form.born.id_for_label }}">{{ form.born.help_text }}</label>
+                {{ form.born }}
+                </div>
+            </div>
+            <div class="six columns">
+                <div class="fieldWrapper">
+                <label for="{{ form.arrived.id_for_label }}">{{ form.arrived.help_text }}</label>
+                {{ form.arrived }}
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="fieldWrapper">
+                <label for="{{ form.animal_characteristics.id_for_label }}">{{ form.animal_characteristics.help_text }}</label>
+                {{ form.animal_characteristics }}
+                </div>
+            </div>
+
+             <div class="row">
+            <div class="six columns">
+                 <div class="fieldWrapper">
+                <label for="{{ form.fur_colour.id_for_label }}">{{ form.fur_colour.help_text }}</label>
+                {{ form.fur_colour }}
+                </div>
+            </div>
+            <div class="six columns">
+                <div class="fieldWrapper">
+                <label for="{{ form.fur_type.id_for_label }}">{{ form.fur_type.help_text }}</label>
+                {{ form.fur_type }}
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="six columns">
+                 <div class="fieldWrapper">
+                <label for="{{ form.white_marks.id_for_label }}">{{ form.white_marks.help_text }}</label>
+                {{ form.white_marks }}
+                </div>
+            </div>
+            <div class="six columns">
+                <div class="fieldWrapper">
+                <label for="{{ form.eye_colour.id_for_label }}">{{ form.eye_colour.help_text }}</label>
+                {{ form.eye_colour }}
+                </div>
+            </div>
+            </div>
+
+              <div class="row">
+            <div class="six columns">
+                 <div class="fieldWrapper">
+                <label for="{{ form.blue_eyed_white.id_for_label }}">{{ form.blue_eyed_white.help_text }}</label>
+                {{ form.blue_eyed_white }}
+                </div>
+            </div>
+            <div class="six columns">
+                <div class="fieldWrapper">
+                <label for="{{ form.genotype.id_for_label }}">{{ form.genotype.help_text }}</label>
+                {{ form.genotype }}
+                </div>
+            </div>
+            </div>
+
+            <input class="button" name="submit" value="Tilføj Dyr" type="submit" />
+        </form>
+
+    </div>
+    </div>
+
+    <div class="container">
+    <h4>Vores dyr</h4>
+    {% if animal_list %}
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Navn</th>
+            <th>Art</th>
+            <th>Født</th>
+            <th>Kendetegn</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for animal in animal_list %}
+          <tr>
+            <td>{{ animal.animal_name }}</td>
+            <td>{{ animal.species }}</td>
+            <td>{{ animal.born }}</td>
+            <td>{{ animal.animal_characteristics }}</td>
+            <td><a class="button" href="">KILL</a></td>
+            <td><a class="button" href="">Fjern</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Vi har ingen dyr :(</p>
+    {% endif %}
+    </div>
+
+
+{% endblock %}

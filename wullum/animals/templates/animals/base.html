@@ -20,26 +20,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="three columns selector"><div class="down">Overblik</div></div>
-          <div class="three columns selector"><div class="down">Dyrene</div></div>
-          <div class="three columns selector"><div class="down">Indkøb</div></div>
-          <div class="three columns selector"><div class="down">ÆG!!</div></div>
+          <div class="three columns selector"><a class="down" href="{% url 'animals:index' %}">Overblik</a></div>
+          <div class="three columns selector"><a class="down" href="{% url 'animals:all' %}">Dyrene</a></div>
+          <div class="three columns selector"><a class="down" href="">Indkøb</a></div>
+          <div class="three columns selector"><a class="down" href="">ÆG!!</a></div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="greyfield">
-    <div class="container">
-      <div class="row">
-        <div class="three columns selector"><div class="down">Overblik</div></div>
-        <div class="three columns selector"><div class="down">Dyrene</div></div>
-        <div class="three columns selector"><div class="down">Indkøb</div></div>
-        <div class="three columns selector"><div class="down">ÆG!!</div></div>
-      </div>
-    </div>
-  </div> -->
-
 
     {% block body_block %}{% endblock%}
 
@@ -55,3 +43,4 @@
     </div>
   </div>
   </body>
+</html>

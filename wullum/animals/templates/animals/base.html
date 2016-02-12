@@ -4,6 +4,7 @@
   <head>
     <metacharset="UTF-8">
     <title>Wullum - {% block title %}Dyr!!{% endblock %}</title>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'animals/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'animals/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'animals/styles.css' %}" />
@@ -18,8 +19,27 @@
           <h2>Velkommen til Langerød!</h2>
           </div>
         </div>
+        <div class="row">
+          <div class="three columns selector"><div class="down">Overblik</div></div>
+          <div class="three columns selector"><div class="down">Dyrene</div></div>
+          <div class="three columns selector"><div class="down">Indkøb</div></div>
+          <div class="three columns selector"><div class="down">ÆG!!</div></div>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- <div class="greyfield">
+    <div class="container">
+      <div class="row">
+        <div class="three columns selector"><div class="down">Overblik</div></div>
+        <div class="three columns selector"><div class="down">Dyrene</div></div>
+        <div class="three columns selector"><div class="down">Indkøb</div></div>
+        <div class="three columns selector"><div class="down">ÆG!!</div></div>
+      </div>
+    </div>
+  </div> -->
+
 
     {% block body_block %}{% endblock%}
 

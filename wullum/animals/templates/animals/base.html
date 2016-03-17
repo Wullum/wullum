@@ -20,10 +20,26 @@
           </div>
         </div>
         <div class="row">
-          <div class="three columns selector"><a class="down" href="{% url 'animals:index' %}">Overblik</a></div>
-          <div class="three columns selector"><a class="down" href="{% url 'animals:all' %}">Dyrene</a></div>
-          <div class="three columns selector"><a class="down" href="">Indkøb</a></div>
-          <div class="three columns selector"><a class="down" href="">ÆG!!</a></div>
+          <div class="three columns">
+          <a class="selector" href="{% url 'animals:index' %}">Overblik</a>
+
+          </div>
+
+          <div class="three columns dropdown">
+              <a class="selector" href="{% url 'animals:all' %}">Dyrene</a>
+               <div class="dropdown-content">
+                <a href="#">Kaniner</a>
+                <a href="#">Høns</a>
+                <a href="#">Geder</a>
+          </div>
+          </div>
+
+          <div class="three columns">
+              <a class="selector" href="">Indkøb</a>
+          </div>
+          <div class="three columns">
+              <a class="selector" href="">ÆG!!</a>
+          </div>
         </div>
       </div>
     </div>

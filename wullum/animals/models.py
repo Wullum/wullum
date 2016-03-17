@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Animals(models.Model):
@@ -15,8 +16,13 @@ class Animals(models.Model):
     eye_colour = models.CharField(max_length=100)
     blue_eyed_white = models.CharField(max_length=50)
     genotype = models.CharField(max_length = 50)
+    slug = models.SlugField()
 
-
+    def save(self, *args, **kwargs):
+        #if self.id is None:
+           # self.slug = slugify(self.animal_name)
+        self.slug = slugify(self.animal_name)
+        super(Animals, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = "Animals"

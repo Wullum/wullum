@@ -37,3 +37,15 @@ def all(request):
         form = AddAnimal()
 
     return render(request, 'animals/all.html', {'animal_list': animal_list, 'form': form})
+
+def animal(request, animal_name_slug):
+    context_dict = {}
+
+    try:
+        animal = Animals.objects.get(slug=animal_name_slug)
+        context_dict['animal_name'] = Animal.animal_name
+
+    except Animals.DoesNotExist:
+        pass
+
+    return render(request, 'animals/animal.html', context_dict)

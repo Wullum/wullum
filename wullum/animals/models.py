@@ -24,6 +24,9 @@ class Animals(models.Model):
         self.slug = slugify(self.animal_name)
         super(Animals, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.animal_name
+
     class Meta:
         verbose_name_plural = "Animals"
 

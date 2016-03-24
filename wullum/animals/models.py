@@ -19,8 +19,8 @@ class Animals(models.Model):
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        #if self.id is None:
-           # self.slug = slugify(self.animal_name)
+        if self.id is None:
+            self.slug = slugify(self.animal_name)
         self.slug = slugify(self.animal_name)
         super(Animals, self).save(*args, **kwargs)
 

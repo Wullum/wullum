@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 from .models import Animals, FoodPurchases, MiscPurchases, Eggs
 from .forms import AddAnimal
@@ -40,13 +41,7 @@ def all(request):
 
 
 def animal(request, animal_name_slug):
-    context_dict = {}
 
-    try:
-        animal = Animals.objects.get(slug=animal_name_slug)
-        context_dict['animal_name'] = animal.animal_name
+    one_animal = get_object_or_404(Animals, slug=animal_name_slug)
 
-    except Animals.DoesNotExist:
-        pass
-
-    return render(request, 'animals/animal.html', context_dict)
+    return render(request, 'animals/animal.html', {'one_animal': one_animal})

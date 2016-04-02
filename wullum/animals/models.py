@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 # Create your models here.
 class Animals(models.Model):
@@ -40,7 +41,7 @@ class Weights(models.Model):
 
 class Comments(models.Model):
     animals = models.ForeignKey(Animals, on_delete=models.CASCADE)
-    comments_date = models.DateField('Dato', editable=True, null=True)
+    comments_date = models.DateField('Dato', editable=True, null=True, default=timezone.now)
     comment = models.TextField(max_length=500)
 
     class Meta:

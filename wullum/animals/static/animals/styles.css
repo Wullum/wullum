@@ -117,3 +117,11 @@ a {
   top:18px;
   margin:0;
 }
+
+.billede {
+  border: solid 4px #298F80;
+  width:inherit;
+  height:inherit;
+  text-align:center;
+}
+

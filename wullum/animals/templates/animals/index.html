@@ -19,7 +19,7 @@
         <tbody>
           {% for animal in animal_list %}
           <tr>
-            <td>{{ animal.animal_name }}</td>
+            <td><a href="/animals/{{ animal.slug }}">{{ animal.animal_name }}</a></td>
             <td>{{ animal.species }}</td>
             <td>{{ animal.born }}</td>
             <td>{{ animal.animal_characteristics }}</td>

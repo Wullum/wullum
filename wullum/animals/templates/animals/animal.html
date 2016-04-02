@@ -3,5 +3,74 @@
 {% block title %}Dyr!!{% endblock %}
 
 {% block body_block %}
-    <p>{{ one_animal }} er mit navn</p>
+    <div class="greyfield">
+    <div class="container">
+        <div class="row">
+            <div class="four columns billede">
+                <p>Intet billede :(</p>
+            </div>
+
+            <div class="four columns">
+                <h4>{{ one_animal }}</h4>
+                <ul>
+                    <li>Race: {{ one_animal.species }}</li>
+                    <li>Født: {{ one_animal.born }}</li>
+                    <li>Ankommet: {{ one_animal.arrived }}</li>
+                    <li>Kendetegn: {{ one_animal.animal_characteristics }}</li>
+                </ul>
+            </div>
+
+            <div class="four columns">
+                {% if one_animal.species == "Kanin" %}
+
+                </ul>
+                    <li>Pelsfarve: {{ one_animal.fur_colour }}</li>
+                    <li>Pelstype: {{ one_animal.fur_type }}</li>
+                    <li>Hvide tegninger: {{ one_animal.white_marks }}</li>
+                    <li>Øjenfarve: {{ one_animal.eye_colour }}</li>
+                    <li>Blue-eyed white: {{ one_animal.blue_eyed_white }}</li>
+                    <li>Genom: {{ one_animal.genotype }}</li>
+                </ul>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="six columns">
+                <h4>Kommentarer</h4>
+
+
+                <form id="add_comment" method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {% for hidden in form.hidden_fields %}
+                        {{  hidden }}
+                    {% endfor %}
+
+                    <div class="fieldWrapper">
+                        <label for="name">{{ form.comment.help_text }}</label>
+                        {{ form.comment.errors }}
+                        {{ form.comment }}
+                    </div>
+
+                    <input class="button" name="submit" value="Tilføj kommentar" type="submit"/>
+                </form>
+
+                <table class="u-full-width">
+                {% for comment in comment_list %}
+                    <tbody>
+                    <tr>
+                        <td>{{ comment.comments_date }}</td>
+                        <td>{{ comment.comment }}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}

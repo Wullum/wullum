@@ -1,6 +1,6 @@
 from django import forms
 
-from animals.models import Animals
+from animals.models import Animals, Comments
 
 class AddAnimal(forms.ModelForm):
     animal_name = forms.CharField(max_length=200, help_text="Navn")
@@ -30,3 +30,13 @@ class AddAnimal(forms.ModelForm):
     class Meta:
         model = Animals
         fields = ('animal_name', 'species', 'born', 'arrived', 'animal_characteristics', 'fur_colour', 'fur_type', 'white_marks', 'eye_colour', 'blue_eyed_white', 'genotype',)
+
+class AddComment(forms.ModelForm):
+    animals = forms.ModelChoiceField(queryset=Animals.objects.all(), required=False)
+    comment_date = forms.DateField(help_text="Vælg dato", required=False)
+    comment = forms.CharField(widget=forms.Textarea, max_length=400, help_text='Skriv kommentaren her')
+    comment.widget.attrs.update({'class': 'u-full-width', 'id':'comment'})
+
+    class Meta:
+        model = Comments
+        fields = ('comment',)

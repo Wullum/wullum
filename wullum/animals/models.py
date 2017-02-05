@@ -41,7 +41,7 @@ class Weights(models.Model):
 
 class Comments(models.Model):
     animals = models.ForeignKey(Animals, on_delete=models.CASCADE)
-    comments_date = models.DateField('Dato', editable=True, null=True, default=timezone.now)
+    comments_date = models.DateField(auto_now_add=True)
     comment = models.TextField(max_length=500)
 
     class Meta:

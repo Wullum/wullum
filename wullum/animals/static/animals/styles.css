@@ -125,3 +125,6 @@ a {
   text-align:center;
 }
 
+.comments_date {
+  display:none;
+}

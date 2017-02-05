@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.utils import timezone
+import logging
 
 from .forms import AddAnimal, AddComment
 from .models import Animals, FoodPurchases, MiscPurchases, Eggs, Comments
@@ -42,16 +43,20 @@ def all(request):
 
 def animal(request, animal_name_slug):
 
+    logger = logging.getLogger(__name__)
+
     one_animal = get_object_or_404(Animals, slug=animal_name_slug)
 
     comment_list = Comments.objects.order_by('-comments_date')
+
+    animal = Animals.objects.get(slug=animal_name_slug)
 
     if request.method == "POST":
         form = AddComment(request.POST)
 
         if form.is_valid():
-            form.animals = Animals.objects.get(slug=animal_name_slug)
-            form.comment_date = timezone.now()
+            comment = form.save(commit=False)
+            comment.animals = animal
             form.save(commit=True)
 
             return HttpResponseRedirect('/animals')

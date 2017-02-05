@@ -32,11 +32,12 @@ class AddAnimal(forms.ModelForm):
         fields = ('animal_name', 'species', 'born', 'arrived', 'animal_characteristics', 'fur_colour', 'fur_type', 'white_marks', 'eye_colour', 'blue_eyed_white', 'genotype',)
 
 class AddComment(forms.ModelForm):
-    animals = forms.ModelChoiceField(queryset=Animals.objects.all(), required=False)
-    comment_date = forms.DateField(help_text="Vælg dato", required=False)
+    animals = forms.ModelChoiceField(queryset=Animals.objects.all(), help_text='Vælg dyr')
+    comments_date = forms.DateField(initial='01/01/01', help_text='Vælg dato')
     comment = forms.CharField(widget=forms.Textarea, max_length=400, help_text='Skriv kommentaren her')
     comment.widget.attrs.update({'class': 'u-full-width', 'id':'comment'})
 
     class Meta:
         model = Comments
-        fields = ('comment',)
+        fields = ('animals', 'comment_date','comment',)
+        exclude = ['animals', 'comment_date']

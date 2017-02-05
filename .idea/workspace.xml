@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="839f2ca3-ab4e-47e0-b88e-4e4be7b45420" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/db.sqlite3" afterPath="$PROJECT_DIR$/wullum/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/forms.py" afterPath="$PROJECT_DIR$/wullum/animals/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/models.py" afterPath="$PROJECT_DIR$/wullum/animals/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/static/animals/styles.css" afterPath="$PROJECT_DIR$/wullum/animals/static/animals/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/animal.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/animal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/views.py" afterPath="$PROJECT_DIR$/wullum/animals/views.py" />
     </list>
     <ignored path="wullum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -802,7 +796,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486299718292</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Her er filerne til forsidens home-app også inkluderet">
+      <created>1486320186064</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1486320186064</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">

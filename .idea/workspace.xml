@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="839f2ca3-ab4e-47e0-b88e-4e4be7b45420" name="Default" comment="Tilføjet forside. Linker til animals">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/db.sqlite3" afterPath="$PROJECT_DIR$/wullum/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="839f2ca3-ab4e-47e0-b88e-4e4be7b45420" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/templates/home/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wullum/home/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/wullum.iml" afterPath="$PROJECT_DIR$/.idea/wullum.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/wullum/settings.py" afterPath="$PROJECT_DIR$/wullum/wullum/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/wullum/urls.py" afterPath="$PROJECT_DIR$/wullum/wullum/urls.py" />
     </list>
     <ignored path="wullum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,8 +81,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="15" />
+            <state relative-caret-position="396">
+              <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -715,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459609894093</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Tilføjet forside. Linker til animals">
+      <created>1486297238759</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1486297238759</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1159,8 +1168,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="15" />
+        <state relative-caret-position="396">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,43 @@
+{% extends 'animals/base.html' %}
+
+{% block title %}Dyr!!{% endblock %}
+
+    {% block body_block %}
+    <div class="greyfield">
+    <div class="container">
+    <h4 class="inline">Kill list</h4>
+    {% if animal_list %}
+        <div class="">
+            <p class="inline_right kill_count">KILL COUNT: <span class="flashing">{{ kill_count }}</span></p>
+        </div>
+        <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Navn</th>
+            <th>Art</th>
+            <th>Født</th>
+            <th>Død</th>
+            <th>Kendetegn</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for animal in animal_list %}
+          <tr>
+            <td><a href="/animals/{{ animal.slug }}">{{ animal.animal_name }}</a></td>
+            <td>{{ animal.species }}</td>
+            <td>{{ animal.born }}</td>
+            <td>{{ animal.departure }}</td>
+            <td>{{ animal.animal_characteristics }}</td>
+            <td><a class="button" href="">Fjern</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Ingen dyr er døde endnu :(</p>
+    {% endif %}
+
+    </div>
+    </div>
+
+{% endblock %}

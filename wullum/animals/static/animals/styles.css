@@ -125,6 +125,45 @@ a {
   text-align:center;
 }
 
-.comments_date {
+.hidden {
   display:none;
+}
+
+.inline {
+  float:left;
+}
+
+.inline_right {
+  float:right;
+}
+
+#remove_animals {
+  float:right;
+}
+
+.kill_count {
+  border: solid 8px #A23232;
+  background-color: #172727;
+  padding:10px;
+  padding-right:27px;
+  padding-left:27px;
+  margin-top:2px;
+  font-size: 2.1rem;
+  font-family: 'Nosifer', cursive;
+  font-weight: 900;
+  color: #FFA500;
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+}
+
+.flashing{
+  animation: blinker 1s linear infinite;
+  animation-iteration-count: 4;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; font-size: 1.9rem; }
 }

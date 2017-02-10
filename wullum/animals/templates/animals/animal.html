@@ -35,6 +35,53 @@
                 {% endif %}
             </div>
         </div>
+
+        <div class="row">
+            <div class="one-half column">
+
+                    {% if one_animal.dead == False %}
+                        <form id="kill_animals" method="post">
+                        {% csrf_token %}
+                        {{ form_a.non_field_errors }}
+                        {% for hidden in form_a.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+
+                        <div class="fieldWrapper inline">
+                            {{ form_a.departure.errors }}
+                            {{ form_a.departure }}
+                        </div>
+
+                        <div class="fieldWrapper inline">
+                            {{ form_a.dead.errors }}
+                            {{ form_a.dead }}
+                        </div>
+                        <input class="button" name="submit_kill" value="KILL" type="submit"/>
+                        </form>
+                    {% else %}
+                        <p><strong>{{ one_animal.departure }} døde {{ one_animal.animal_name }}</strong></p>
+                    {% endif %}
+
+            </div>
+
+            <div class="one-half column">
+
+                    <form id="remove_animals" method="post">
+                        {% csrf_token %}
+                        {{ form_g.non_field_errors }}
+                        {% for hidden in form_g.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+
+                        <div class="fieldWrapper inline">
+                            {{ form_g.gone.errors }}
+                            {{ form_g.gone }}
+                        </div>
+                    <input class="button" name="submit_gone" value="Remove" type="submit"/>
+                    </form>
+
+            </div>
+        </div>
     </div>
     </div>
 
@@ -42,7 +89,6 @@
         <div class="row">
             <div class="six columns">
                 <h4>Kommentarer</h4>
-
 
                 <form id="add_comment" method="post">
                     {% csrf_token %}
@@ -57,21 +103,59 @@
                         {{ form.comment }}
                     </div>
 
-                    <div class="fieldWrapper comments_date">
+                    <div class="fieldWrapper hidden">
                         <label for="name">{{ form.comments_date.help_text }}</label>
                         {{ form.comment_date.errors }}
                         {{ form.comments_date }}
                     </div>
 
-                    <div class="fieldWrapper">
+                    <div class="fieldWrapper hidden">
                         <label for="name">{{ form.animals.help_text }}</label>
                         {{ form.animals.errors }}
                         {{ form.animals }}
                     </div>
 
-                    <input class="button" name="submit" value="Tilføj kommentar" type="submit"/>
+                    <input class="button" name="submit_comment" value="Tilføj kommentar" type="submit"/>
                 </form>
+            </div>
 
+            <div class="six columns">
+            <h4>Vægt</h4>
+
+            <form id="add_weight" method="post">
+                {% csrf_token %}
+                {{ form_w.non_field_errors }}
+                {% for hidden in form_w.hidden_fields %}
+                    {{  hidden }}
+                {% endfor %}
+
+                <div class="fieldWrapper">
+                    <label for="name">Skriv vægt her</label>
+                    {{ form_w.weight.errors }}
+                    {{ form_w.weight }}
+                </div>
+
+                <div class=fieldWrapper">
+                    <label for="name">Skriv dato her</label>
+                    {{ form_w.weight_date.errors }}
+                    {{ form_w.weight_date }}
+                </div>
+
+                <div class="fieldWrapper hidden">
+                    <label for="name">{{ form_w.animals_w.help_text }}</label>
+                    {{ form_w.animals_w.errors }}
+                    {{ form_w.animals_w }}
+                </div>
+
+                <input class="button" name="submit_weight" value="Tilføj vægtmåling" type="submit"/>
+            </form>
+
+            </div>
+            </div>
+
+        <div class="row">
+            <div class="one-half column">
+                {% if comment_list %}
                 <table class="u-full-width">
                 {% for comment in comment_list %}
                     <tbody>
@@ -82,7 +166,29 @@
                     </tbody>
                 {% endfor %}
                 </table>
+                {% else %}
+                <p>Der er ingen kommentarer...</p>
+                {% endif %}
             </div>
+
+            <div class="one-half column">
+                {% if weight_list %}
+                <table class="u-full-width">
+                {% for weight in weight_list %}
+                    <tbody>
+                    <tr>
+                        <td>{{ weight.weight_date }}</td>
+                        <td>{{ weight.weight }} kg</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+                {% else %}
+                <p>Der er ingen vægte målt...</p>
+                {% endif %}
+            </div>
+
         </div>
+
     </div>
 {% endblock %}

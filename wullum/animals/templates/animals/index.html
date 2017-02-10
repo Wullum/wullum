@@ -5,8 +5,11 @@
   {% block body_block %}
     <div class="greyfield">
     <div class="container">
-    <h4>Vores dyr</h4>
+    <h4 class="inline">Vores dyr</h4>
     {% if animal_list %}
+        <div class="">
+            <p class="inline_right kill_count">KILL COUNT: {{ kill_count }}</p>
+        </div>
       <table class="u-full-width">
         <thead>
           <tr>
@@ -14,6 +17,7 @@
             <th>Art</th>
             <th>Født</th>
             <th>Kendetegn</th>
+            <th>Farve</th>
           </tr>
         </thead>
         <tbody>
@@ -23,8 +27,7 @@
             <td>{{ animal.species }}</td>
             <td>{{ animal.born }}</td>
             <td>{{ animal.animal_characteristics }}</td>
-            <td><a class="button" href="">KILL</a></td>
-            <td><a class="button" href="">Fjern</a></td>
+            <td>{{ animal.fur_colour }}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -37,7 +40,7 @@
 
     <div class="whitefield">
     <div class="container">
-      <div class"row">
+      <div class="row">
         <div class="one-half column">
           <h4>Seneste foderindkøb</h4>
           {% if food_list %}

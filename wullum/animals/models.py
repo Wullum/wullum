@@ -10,6 +10,7 @@ class Animals(models.Model):
     arrived = models.DateField('Ankommet', editable=True, null=True)
     departure = models.DateField('Afgang', editable=True, null=True, blank=True)
     dead = models.BooleanField('Død?', editable=True, default=False)
+    gone = models.BooleanField('Fjern', editable=True, default=False)
     animal_characteristics = models.TextField(max_length=400)
     fur_colour = models.CharField(max_length=100)
     fur_type = models.CharField(max_length=100)
@@ -32,9 +33,9 @@ class Animals(models.Model):
         verbose_name_plural = "Animals"
 
 class Weights(models.Model):
-    animals = models.ForeignKey(Animals, on_delete=models.CASCADE)
+    animals_w = models.ForeignKey(Animals, on_delete=models.CASCADE)
     weight_date = models.DateField('Dato vejet', editable=True, null=True)
-    weight = models.DecimalField(max_digits=5, decimal_places=2)
+    weight = models.DecimalField(max_digits=6, decimal_places=3)
 
     class Meta:
         verbose_name_plural = "Weights"

@@ -1,6 +1,7 @@
 from django import forms
+from django.utils import timezone
 
-from animals.models import Animals, Comments
+from animals.models import Animals, Comments, Weights
 
 class AddAnimal(forms.ModelForm):
     animal_name = forms.CharField(max_length=200, help_text="Navn")
@@ -32,7 +33,7 @@ class AddAnimal(forms.ModelForm):
         fields = ('animal_name', 'species', 'born', 'arrived', 'animal_characteristics', 'fur_colour', 'fur_type', 'white_marks', 'eye_colour', 'blue_eyed_white', 'genotype',)
 
 class AddComment(forms.ModelForm):
-    animals = forms.ModelChoiceField(queryset=Animals.objects.all(), help_text='Vælg dyr')
+    animals = forms.ModelChoiceField(queryset=Animals.objects.all(), help_text='Vælg dyr', initial='1')
     comments_date = forms.DateField(initial='01/01/01', help_text='Vælg dato')
     comment = forms.CharField(widget=forms.Textarea, max_length=400, help_text='Skriv kommentaren her')
     comment.widget.attrs.update({'class': 'u-full-width', 'id':'comment'})
@@ -41,3 +42,27 @@ class AddComment(forms.ModelForm):
         model = Comments
         fields = ('animals', 'comment_date','comment',)
         exclude = ['animals', 'comment_date']
+
+class AddWeight(forms.ModelForm):
+    animals_w = forms.ModelChoiceField(queryset=Animals.objects.all(), help_text='Vælg dyr', initial='1')
+    weight_date = forms.DateField(initial=timezone.now(), help_text='Vælg dato')
+    weight = forms.DecimalField(min_value=0.00)
+
+    class Meta:
+        model = Weights
+        fields = ('animals_w', 'weight_date', 'weight')
+
+class KillAnimal(forms.ModelForm):
+    departure = forms.DateField(initial=timezone.now(), help_text='Vælg dato')
+    dead = forms.BooleanField(widget=forms.HiddenInput(), initial=True)
+
+    class Meta:
+        model = Animals
+        fields = ('departure', 'dead')
+
+class RemoveAnimal(forms.ModelForm):
+    gone = forms.BooleanField(widget=forms.HiddenInput(), initial=True)
+
+    class Meta:
+        model = Animals
+        fields = ('gone',)

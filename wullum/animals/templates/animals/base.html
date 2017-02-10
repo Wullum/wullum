@@ -5,6 +5,7 @@
     <metacharset="UTF-8">
     <title>Wullum - {% block title %}Dyr!!{% endblock %}</title>
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'animals/normalize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'animals/skeleton.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'animals/styles.css' %}" />
@@ -31,6 +32,7 @@
                 <a href="#">Kaniner</a>
                 <a href="#">Høns</a>
                 <a href="#">Geder</a>
+                <a href="{% url 'animals:dead' %}">Afdøde</a>
           </div>
           </div>
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 
-from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal
+from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal, AddChicken
 from .models import Animals, FoodPurchases, MiscPurchases, Eggs, Comments, Weights
 
 
@@ -114,3 +114,42 @@ def dead(request):
     kill_count = Animals.objects.filter(dead=True).count()
 
     return render(request, 'animals/dead.html', {'animal_list': animal_list, 'kill_count':kill_count})
+
+def rabbits(request):
+    animal_list = Animals.objects.filter(species='Kanin').exclude(dead=True).exclude(gone=True).order_by('-arrived')
+
+    if request.method == 'POST':
+        form = AddAnimal(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+
+            return HttpResponseRedirect('/animals/rabbits')
+
+        else:
+            print(form.errors)
+
+    else:
+        form = AddAnimal()
+
+    return render(request, 'animals/rabbits.html', {'animal_list': animal_list, 'form': form})
+
+def chickens(request):
+    chicken_list = Animals.objects.filter(species='Høne').exclude(dead=True).exclude(gone=True).order_by('-arrived')
+    cock_list = Animals.objects.filter(species='Hane').exclude(dead=True).exclude(gone=True).order_by('-arrived')
+
+    if request.method == 'POST':
+        form = AddChicken(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+
+            return HttpResponseRedirect('/animals/rabbits')
+
+        else:
+            print(form.errors)
+
+    else:
+        form = AddChicken()
+
+    return render(request, 'animals/chickens.html', {'chicken_list': chicken_list, 'cock_list': cock_list, 'form': form})

@@ -5,7 +5,7 @@
 {% block body_block %}
     <div class="greyfield">
     <div class="container">
-        <h4>Tilføj dyr</h4>
+        <h4>Tilføj høne</h4>
 
         <form id="add_animal" method="post" action="/animals/all/">
             <div class="row">
@@ -114,8 +114,8 @@
     </div>
 
     <div class="container">
-    <h4>Vores dyr</h4>
-    {% if animal_list %}
+    <h4>Vores høns</h4>
+    {% if chicken_list %}
       <table class="u-full-width">
         <thead>
           <tr>
@@ -127,7 +127,16 @@
           </tr>
         </thead>
         <tbody>
-          {% for animal in animal_list %}
+          {% for animal in chicken_list %}
+          <tr>
+            <td><a href="/animals/{{ animal.slug }}">{{ animal.animal_name }}</a></td>
+            <td>{{ animal.species }}</td>
+            <td>{{ animal.born }}</td>
+            <td>{{ animal.animal_characteristics }}</td>
+            <td>{{ animal.fur_colour }}</td>
+          </tr>
+          {% endfor %}
+            {% for animal in cock_list %}
           <tr>
             <td><a href="/animals/{{ animal.slug }}">{{ animal.animal_name }}</a></td>
             <td>{{ animal.species }}</td>

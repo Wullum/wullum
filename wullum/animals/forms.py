@@ -66,3 +66,22 @@ class RemoveAnimal(forms.ModelForm):
     class Meta:
         model = Animals
         fields = ('gone',)
+
+class AddChicken(forms.ModelForm):
+    animal_name = forms.CharField(max_length=200, help_text="Navn")
+    animal_name.widget.attrs.update({'class': 'u-full-width', 'id':'name'})
+    species = forms.CharField(max_length=100, help_text='Art')
+    species.widget.attrs.update({'class': 'u-full-width', 'id':'species'})
+    born = forms.DateField(help_text='Født')
+    born.widget.attrs.update({'class': 'u-full-width', 'id':'born'})
+    arrived = forms.DateField(help_text='Ankommet')
+    arrived.widget.attrs.update({'class': 'u-full-width', 'id':'arrived'})
+    dead = forms.BooleanField(widget=forms.HiddenInput(), required=False)
+    animal_characteristics = forms.CharField(widget=forms.Textarea, max_length=400, help_text='Kendetegn')
+    animal_characteristics.widget.attrs.update({'class': 'u-full-width', 'id':'animal_characteristics'})
+    fur_colour = forms.CharField(max_length=100, help_text='Fjerfarve')
+    fur_colour.widget.attrs.update({'class': 'u-full-width', 'id':'fur_colour'})
+
+    class Meta:
+        model = Animals
+        fields = ('animal_name', 'species', 'born', 'arrived', 'dead', 'animal_characteristics', 'fur_colour')

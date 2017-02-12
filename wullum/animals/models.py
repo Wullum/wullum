@@ -1,23 +1,42 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+
+    def __str__(self):
+        return self.user.username
+
 class Animals(models.Model):
     animal_name = models.CharField(max_length=200)
     species = models.CharField(max_length=100)
-    born = models.DateField('Født', editable=True, null=True)
+    born = models.DateField('Født', editable=True, null=True, blank=True)
     arrived = models.DateField('Ankommet', editable=True, null=True)
     departure = models.DateField('Afgang', editable=True, null=True, blank=True)
     dead = models.BooleanField('Død?', editable=True, default=False)
     gone = models.BooleanField('Fjern', editable=True, default=False)
     animal_characteristics = models.TextField(max_length=400)
-    fur_colour = models.CharField(max_length=100, null=True)
+    fur_colour = models.CharField(max_length=100, null=True, blank=True)
     fur_type = models.CharField(max_length=100, null=True, blank=True)
-    white_marks = models.CharField(max_length=100, null=True, blank=True)
+    white_marks = models.BooleanField('Hvide tegn', editable=True, default=False)
     eye_colour = models.CharField(max_length=100, null=True, blank=True)
-    blue_eyed_white = models.CharField(max_length=50, null=True, blank=True)
-    genotype = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_a1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_a2 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_b1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_b2 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_c1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_c2 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_d1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_d2 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_g1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_g2 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_k1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_k2 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_x1 = models.CharField(max_length = 50, null=True, blank=True)
+    genotype_x2 = models.CharField(max_length = 50, null=True, blank=True)
+    picture = models.ImageField(upload_to='animal_pics', blank=True)
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):

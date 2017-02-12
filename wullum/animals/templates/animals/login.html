@@ -1,0 +1,20 @@
+{% extends 'animals/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Login
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+<h1>Login til Langerød</h1>
+<form id="login_form" method="post" action="">
+{% csrf_token %}
+Bruger: <input type="text" name="username" value="" size="50" />
+<br />
+Password: <input type="password" name="password" value="" size="50" />
+<br />
+<input type="submit" value="submit" />
+</form>
+</div>
+{% endblock %}

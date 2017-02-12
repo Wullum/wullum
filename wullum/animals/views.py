@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
-from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal, AddChicken
-from .models import Animals, FoodPurchases, MiscPurchases, Eggs, Comments, Weights
+from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal, AddRabbit, AddChicken, AddGoat
+from .models import Animals, FoodPurchases, MiscPurchases, Eggs, Comments, Weights, UserProfile
 
 
 # Create your views here.
@@ -26,15 +28,21 @@ def all(request):
     animal_list = Animals.objects.exclude(dead=True).order_by('-arrived')
 
     if request.method == 'POST':
-        form = AddAnimal(request.POST)
 
-        if form.is_valid():
-            form.save(commit=True)
+        if request.user.is_authenticated:
+            form = AddAnimal(request.POST, request.FILES)
+            if form.is_valid():
+                animal = form.save(commit=False)
+                if 'picture' in request.FILES:
+                    animal.picture = request.FILES['picture']
 
-            return index(request)
+                animal.save()
 
+                return index(request)
+            else:
+                print(form.errors)
         else:
-            print(form.errors)
+            return HttpResponseRedirect('/animals/login')
 
     else:
         form = AddAnimal()
@@ -55,49 +63,61 @@ def animal(request, animal_name_slug):
     if request.method == "POST" and "submit_comment" in request.POST:
         form = AddComment(request.POST)
 
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.animals = id_animal
-            form.save(commit=True)
+        if request.user.is_authenticated:
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.animals = id_animal
+                form.save(commit=True)
 
-            return HttpResponseRedirect('')
+                return HttpResponseRedirect('')
 
+            else:
+                print(form.errors)
         else:
-            print(form.errors)
+            return HttpResponseRedirect('/animals/login')
 
     elif request.method == "POST" and "submit_weight" in request.POST:
         form_w = AddWeight(request.POST)
 
-        if form_w.is_valid():
-            weight = form_w.save(commit=False)
-            weight.animals_w = id_animal
-            form_w.save(commit=True)
+        if request.user.is_authenticated:
+            if form_w.is_valid():
+                weight = form_w.save(commit=False)
+                weight.animals_w = id_animal
+                form_w.save(commit=True)
 
-            return HttpResponseRedirect('')
+                return HttpResponseRedirect('')
 
+            else:
+                print(form_w.errors)
         else:
-            print(form_w.errors)
+            return HttpResponseRedirect('/animals/login')
 
     elif request.method == "POST" and "submit_kill" in request.POST:
         form_a = KillAnimal(request.POST, instance=one_animal)
 
-        if form_a.is_valid():
-            form_a.save()
+        if request.user.is_authenticated:
+            if form_a.is_valid():
+                form_a.save()
 
-            return HttpResponseRedirect('/animals/dead')
+                return HttpResponseRedirect('/animals/dead')
 
+            else:
+                print(form_a.errors)
         else:
-            print(form_a.errors)
+            return HttpResponseRedirect('/animals/login')
 
     elif request.method == "POST" and "submit_gone" in request.POST:
         form_g = RemoveAnimal(request.POST, instance=one_animal)
 
-        if form_g.is_valid():
-            form_g.save()
+        if request.user.is_authenticated:
+            if form_g.is_valid():
+                form_g.save()
 
-            return HttpResponseRedirect('/animals')
+                return HttpResponseRedirect('/animals')
+            else:
+                print(form_g.errors)
         else:
-            print(form_g.errors)
+            return HttpResponseRedirect('/animals/login')
 
     else:
         form_w = AddWeight
@@ -120,18 +140,25 @@ def rabbits(request):
     animal_list = Animals.objects.filter(species='Kanin').exclude(dead=True).exclude(gone=True).order_by('-arrived')
 
     if request.method == 'POST':
-        form = AddAnimal(request.POST)
+        form = AddRabbit(request.POST)
 
-        if form.is_valid():
-            form.save(commit=True)
+        if request.user.is_authenticated:
+            if form.is_valid():
+                animal = form.save(commit=False)
+                if 'picture' in request.FILES:
+                    animal.picture = request.FILES['picture']
 
-            return HttpResponseRedirect('')
+                animal.save(commit=True)
 
+                return HttpResponseRedirect('')
+
+            else:
+                print(form.errors)
         else:
-            print(form.errors)
+            return HttpResponseRedirect('/animals/login')
 
     else:
-        form = AddAnimal()
+        form = AddRabbit()
 
     return render(request, 'animals/rabbits.html', {'animal_list': animal_list, 'form': form})
 
@@ -142,15 +169,72 @@ def chickens(request):
     if request.method == 'POST':
         form = AddChicken(request.POST)
 
-        if form.is_valid():
-            form.save()
+        if request.user.is_authenticated:
+            if form.is_valid():
+                animal = form.save(commit=False)
+                if 'picture' in request.FILES:
+                    animal.picture = request.FILES['picture']
 
-            return HttpResponseRedirect('')
+                animal.save()
 
+                return HttpResponseRedirect('')
+
+            else:
+                print(form.errors)
         else:
-            print(form.errors)
+            return HttpResponseRedirect('/animals/login')
 
     else:
         form = AddChicken()
 
     return render(request, 'animals/chickens.html', {'chicken_list': chicken_list, 'cock_list': cock_list, 'form': form})
+
+def goats(request):
+    animal_list = Animals.objects.filter(species='Ged').order_by('-arrived')
+
+    if request.method == 'POST':
+        form = AddGoat(request.POST)
+
+        if request.user.is_authenticated:
+            if form.is_valid():
+                animal = form.save(commit=False)
+                if 'picture' in request.FILES:
+                    animal.picture = request.FILES['picture']
+
+                animal.save()
+
+                return HttpResponseRedirect('')
+            else:
+                print(form.errors)
+        else:
+            return HttpResponseRedirect('/animals/login')
+
+    else:
+        form = AddGoat()
+
+    return render(request, 'animals/goats.html', {'animal_list': animal_list, 'form': form})
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/animals')
+            else:
+                return HttpResponse("Din kono er ikke aktiv")
+        else:
+            print("Invalid login details: {0},{1}".format(username, password))
+            return HttpResponse("Ugyldig login")
+    else:
+        return render(request, 'animals/login.html')
+
+@login_required
+def user_logout(request):
+    logout(request)
+
+    return index(request)

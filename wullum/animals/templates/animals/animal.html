@@ -28,8 +28,11 @@
                     <li>Pelstype: {{ one_animal.fur_type }}</li>
                     <li>Hvide tegninger: {{ one_animal.white_marks }}</li>
                     <li>Øjenfarve: {{ one_animal.eye_colour }}</li>
-                    <li>Blue-eyed white: {{ one_animal.blue_eyed_white }}</li>
-                    <li>Genom: {{ one_animal.genotype }}</li>
+                    <li>Genom: ({{ one_animal.genotype_a1 }},{{ one_animal.genotype_a2 }}) ({{ one_animal.genotype_b1 }},
+                        {{ one_animal.genotype_b2 }}) ({{ one_animal.genotype_c1 }}, {{ one_animal.genotype_c2 }})
+                        ({{ one_animal.genotype_d1 }}, {{ one_animal.genotype_d2 }}) ({{ one_animal.genotype_g1 }},
+                        {{ one_animal.genotype_g2 }}) ({{ one_animal.genotype_k1 }}, {{ one_animal.genotype_k2 }})
+                        ({{ one_animal.genotype_x1 }}, {{ one_animal.genotype_x2 }})</li>
                 </ul>
 
                 {% endif %}

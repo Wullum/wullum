@@ -7,7 +7,7 @@
     <div class="container">
         <h4>Tilføj høne</h4>
 
-        <form id="add_animal" method="post" action="/animals/all/">
+        <form id="add_animal" method="post">
             <div class="row">
             <div class="six columns">
             {% csrf_token %}
@@ -62,47 +62,6 @@
                 <label for="{{ form.fur_colour.id_for_label }}">{{ form.fur_colour.help_text }}</label>
                  {{ form.fur_colour.errors }}
                  {{ form.fur_colour }}
-                </div>
-            </div>
-            <div class="six columns">
-                <div class="fieldWrapper">
-                <label for="{{ form.fur_type.id_for_label }}">{{ form.fur_type.help_text }}</label>
-                {{ form.fur_type.errors }}
-                {{ form.fur_type }}
-                </div>
-            </div>
-            </div>
-
-            <div class="row">
-            <div class="six columns">
-                 <div class="fieldWrapper">
-                <label for="{{ form.white_marks.id_for_label }}">{{ form.white_marks.help_text }}</label>
-                 {{ form.white_marks.errors }}
-                {{ form.white_marks }}
-                </div>
-            </div>
-            <div class="six columns">
-                <div class="fieldWrapper">
-                <label for="{{ form.eye_colour.id_for_label }}">{{ form.eye_colour.help_text }}</label>
-                {{ form.eye_colour.errors }}
-                {{ form.eye_colour }}
-                </div>
-            </div>
-            </div>
-
-              <div class="row">
-            <div class="six columns">
-                 <div class="fieldWrapper">
-                <label for="{{ form.blue_eyed_white.id_for_label }}">{{ form.blue_eyed_white.help_text }}</label>
-                {{ form.blue_eyed_white.errors }}
-                {{ form.blue_eyed_white }}
-                </div>
-            </div>
-            <div class="six columns">
-                <div class="fieldWrapper">
-                <label for="{{ form.genotype.id_for_label }}">{{ form.genotype.help_text }}</label>
-                {{ form.genotype.errors }}
-                {{ form.genotype }}
                 </div>
             </div>
             </div>

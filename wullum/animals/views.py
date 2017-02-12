@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal, AddChicken
 from .models import Animals, FoodPurchases, MiscPurchases, Eggs, Comments, Weights
@@ -124,7 +125,7 @@ def rabbits(request):
         if form.is_valid():
             form.save(commit=True)
 
-            return HttpResponseRedirect('/animals/rabbits')
+            return HttpResponseRedirect('')
 
         else:
             print(form.errors)
@@ -142,9 +143,9 @@ def chickens(request):
         form = AddChicken(request.POST)
 
         if form.is_valid():
-            form.save(commit=True)
+            form.save()
 
-            return HttpResponseRedirect('/animals/rabbits')
+            return HttpResponseRedirect('')
 
         else:
             print(form.errors)

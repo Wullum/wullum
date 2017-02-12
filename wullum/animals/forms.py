@@ -81,7 +81,12 @@ class AddChicken(forms.ModelForm):
     animal_characteristics.widget.attrs.update({'class': 'u-full-width', 'id':'animal_characteristics'})
     fur_colour = forms.CharField(max_length=100, help_text='Fjerfarve')
     fur_colour.widget.attrs.update({'class': 'u-full-width', 'id':'fur_colour'})
+    fur_type = forms.CharField(required=False, widget=forms.HiddenInput(), initial=0)
+    white_marks = forms.CharField(widget=forms.HiddenInput(), required=False, initial=0)
+    eye_colour = forms.CharField(required=False, widget=forms.HiddenInput(), initial=0)
+    blue_eyed_white = forms.CharField(required=False, widget=forms.HiddenInput(), initial=0)
+    genotype = forms.CharField(required=False, widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = Animals
-        fields = ('animal_name', 'species', 'born', 'arrived', 'dead', 'animal_characteristics', 'fur_colour')
+        fields = ('animal_name', 'species', 'born', 'arrived', 'dead', 'animal_characteristics', 'fur_colour', )

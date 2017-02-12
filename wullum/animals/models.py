@@ -13,11 +13,11 @@ class Animals(models.Model):
     gone = models.BooleanField('Fjern', editable=True, default=False)
     animal_characteristics = models.TextField(max_length=400)
     fur_colour = models.CharField(max_length=100, null=True)
-    fur_type = models.CharField(max_length=100, null=True)
-    white_marks = models.CharField(max_length=100, null=True)
-    eye_colour = models.CharField(max_length=100, null=True)
-    blue_eyed_white = models.CharField(max_length=50, null=True)
-    genotype = models.CharField(max_length = 50, null=True)
+    fur_type = models.CharField(max_length=100, null=True, blank=True)
+    white_marks = models.CharField(max_length=100, null=True, blank=True)
+    eye_colour = models.CharField(max_length=100, null=True, blank=True)
+    blue_eyed_white = models.CharField(max_length=50, null=True, blank=True)
+    genotype = models.CharField(max_length = 50, null=True, blank=True)
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):

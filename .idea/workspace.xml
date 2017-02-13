@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="839f2ca3-ab4e-47e0-b88e-4e4be7b45420" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/db.sqlite3" afterPath="$PROJECT_DIR$/wullum/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/wullum/urls.py" afterPath="$PROJECT_DIR$/wullum/wullum/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/models.py" afterPath="$PROJECT_DIR$/wullum/animals/models.py" />
     </list>
     <ignored path="wullum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,16 +78,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chickens.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2376">
-              <caret line="72" column="18" lean-forward="false" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/urls.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,12 +108,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/wullum/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="0">
+              <caret line="0" column="27" lean-forward="true" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+              <folding>
+                <element signature="e#639#680#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,6 +126,18 @@
             <state relative-caret-position="656">
               <caret line="129" column="28" lean-forward="false" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wullum/animals/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <folding>
+                <element signature="e#24#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,8 +165,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/wullum/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -182,6 +185,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>bill</find>
+      <find>root</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,7 +199,6 @@
         <option value="$PROJECT_DIR$/wullum/home/views.py" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/index.html" />
-        <option value="$PROJECT_DIR$/wullum/animals/models.py" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/all.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/login.html" />
         <option value="$PROJECT_DIR$/wullum/animals/urls.py" />
@@ -209,6 +212,7 @@
         <option value="$PROJECT_DIR$/wullum/animals/static/animals/styles.css" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/animal.html" />
         <option value="$PROJECT_DIR$/wullum/wullum/urls.py" />
+        <option value="$PROJECT_DIR$/wullum/animals/models.py" />
       </list>
     </option>
   </component>
@@ -908,7 +912,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486973688309</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fjernet alle objekter undtagen brugere. Gjort animals til startside">
+      <created>1486974053787</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1486974053787</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -965,7 +976,8 @@
     <MESSAGE value="Tilføjet ged-funktion, tilføjet billed-upload, tilføjet login og logud, samt begrænsning på forms" />
     <MESSAGE value="Tilføjet media-mappe" />
     <MESSAGE value="Tilføget billed-funktion og fjernet konkrete billeder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tilføget billed-funktion og fjernet konkrete billeder" />
+    <MESSAGE value="Fjernet alle objekter undtagen brugere. Gjort animals til startside" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fjernet alle objekter undtagen brugere. Gjort animals til startside" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1251,14 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wullum/animals/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6468">
@@ -1274,7 +1278,7 @@
         <state relative-caret-position="8646">
           <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1307,14 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="772">
           <caret line="200" column="18" lean-forward="false" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wullum/wullum/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1366,9 +1362,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wullum/wullum/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="0">
+          <caret line="0" column="27" lean-forward="true" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding>
+            <element signature="e#639#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wullum/wullum/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wullum/animals/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding>
+            <element signature="e#24#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

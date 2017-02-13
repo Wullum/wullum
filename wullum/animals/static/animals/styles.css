@@ -119,10 +119,17 @@ a {
 }
 
 .billede {
-  border: solid 4px #298F80;
   width:inherit;
   height:inherit;
   text-align:center;
+  margin-top:5px;
+  padding:0px;
+}
+
+.profilbillede {
+  border: solid 4px #298F80;
+  padding:px;
+  margin:0px;
 }
 
 .hidden {

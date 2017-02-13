@@ -7,7 +7,13 @@
     <div class="container">
         <div class="row">
             <div class="four columns billede">
-                <p>Intet billede :(</p>
+                {% if one_animal.picture%}
+                    <img class="profilbillede" src="{{ MEDIA_URL }}{{ one_animal.picture }}"
+                         width="100%"
+                         alt="{{ one_animal }}" />
+                {% else %}
+                    <p class="profilbillede">Intet billede :(</p>
+                {% endif %}
             </div>
 
             <div class="four columns">

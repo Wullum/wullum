@@ -5,8 +5,8 @@
   {% block body_block %}
     <div class="greyfield">
     <div class="container">
-    <h4 class="inline">Vores dyr</h4>
-    {% if kill_count %}
+    <h4 class="inline">Vores Dyr</h4>
+    {% if animal_list and user.is_authenticated%}
         <div class="">
             <p class="inline_right kill_count">KILL COUNT: {{ kill_count }}</p>
         </div>

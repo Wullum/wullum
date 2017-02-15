@@ -6,10 +6,12 @@
     <div class="greyfield">
     <div class="container">
     <h4 class="inline">Vores dyr</h4>
-    {% if animal_list %}
+    {% if kill_count %}
         <div class="">
             <p class="inline_right kill_count">KILL COUNT: {{ kill_count }}</p>
         </div>
+    {% endif %}
+    {% if animal_list %}
       <table class="u-full-width">
         <thead>
           <tr>

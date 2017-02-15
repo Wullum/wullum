@@ -30,7 +30,7 @@ FUR_CHOICES = (
 
 A_CHOICES = (
     ('0', '---'),
-    ('A', 'AAA'),
+    ('A', 'A'),
     ('A_chi', 'A(chi)'),
     ('A_m', 'A(m)'),
     ('a', 'a'),

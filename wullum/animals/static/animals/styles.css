@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Nosifer;
+  src: url('Nosifer-Regular.ttf');
+}
+
+@font-face {
+    font-family: Merriweather;
+    src: url('Merriweather-Regular.ttf');
+}
+
 a {
   color:#204056;
 }

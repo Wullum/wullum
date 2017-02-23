@@ -82,6 +82,7 @@
     <div class="container">
     <h4>Vores geder</h4>
     {% if animal_list %}
+      <div style="overflow-x:auto;">
       <table class="u-full-width">
         <thead>
           <tr>
@@ -104,6 +105,7 @@
           {% endfor %}
         </tbody>
       </table>
+      </div>
     {% else %}
       <p>Vi har ingen dyr :(</p>
     {% endif %}

@@ -6,10 +6,13 @@
     <div class="greyfield">
     <div class="container">
     <h4 class="inline">Kill list</h4>
-    {% if animal_list %}
+    {% if animal_list and user.is_authenticated %}
         <div class="">
             <p class="inline_right kill_count">KILL COUNT: <span class="flashing">{{ kill_count }}</span></p>
         </div>
+    {% endif %}
+    {% if animal_list %}
+        <div style="overflow-x:auto;">
         <table class="u-full-width">
         <thead>
           <tr>
@@ -33,6 +36,7 @@
           {% endfor %}
         </tbody>
       </table>
+      </div>
     {% else %}
       <p>Ingen dyr er døde endnu :(</p>
     {% endif %}

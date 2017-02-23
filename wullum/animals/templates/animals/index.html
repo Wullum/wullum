@@ -5,13 +5,16 @@
   {% block body_block %}
     <div class="greyfield">
     <div class="container">
+    <div class="row">
     <h4 class="inline">Vores dyr</h4>
-    {% if animal_list and user.is_authenticated%}
+    {% if animal_list and user.is_authenticated %}
         <div class="">
             <p class="inline_right kill_count">KILL COUNT: {{ kill_count }}</p>
         </div>
     {% endif %}
+    </div>
     {% if animal_list %}
+      <div style="overflow-x:auto;">
       <table class="u-full-width">
         <thead>
           <tr>
@@ -34,6 +37,7 @@
           {% endfor %}
         </tbody>
       </table>
+      </div>
     {% else %}
       <p>Vi har ingen dyr :(</p>
     {% endif %}

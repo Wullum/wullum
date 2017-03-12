@@ -149,7 +149,7 @@ def rabbits(request):
                 if 'picture' in request.FILES:
                     animal.picture = request.FILES['picture']
 
-                animal.save(commit=True)
+                animal.save()
 
                 return HttpResponseRedirect('')
 

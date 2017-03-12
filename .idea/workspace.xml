@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="839f2ca3-ab4e-47e0-b88e-4e4be7b45420" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/all.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/all.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/base.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/goats.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/goats.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/index.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/views.py" afterPath="$PROJECT_DIR$/wullum/animals/views.py" />
     </list>
     <ignored path="wullum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,7 +18,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/wullum$manage.coverage" NAME="runserver Coverage Results" MODIFIED="1485792640104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wullum" />
-    <SUITE FILE_PATH="coverage/wullum$runserver.coverage" NAME="runserver Coverage Results" MODIFIED="1487880460195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wullum" />
+    <SUITE FILE_PATH="coverage/wullum$runserver.coverage" NAME="runserver Coverage Results" MODIFIED="1489309253878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/wullum" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -82,7 +77,7 @@
       <file leaf-file-name="all.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/all.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="6996">
               <caret line="212" column="4" lean-forward="false" selection-start-line="212" selection-start-column="4" selection-end-line="212" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -94,23 +89,19 @@
       <file leaf-file-name="chickens.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="116" column="10" lean-forward="false" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="2178">
+              <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dead.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dead.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/dead.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
+            <state relative-caret-position="1007">
               <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-              <folding>
-                <element signature="e#447#471#0#HTML" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,8 +109,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="36" />
+            <state relative-caret-position="528">
+              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -130,7 +121,7 @@
       <file leaf-file-name="goats.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/goats.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1531">
+            <state relative-caret-position="3531">
               <caret line="107" column="12" lean-forward="false" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -142,22 +133,20 @@
       <file leaf-file-name="rabbits.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
+            <state relative-caret-position="7755">
               <caret line="235" column="12" lean-forward="false" selection-start-line="235" selection-start-column="12" selection-end-line="235" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wullum/animals/forms.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wullum/animals/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="132">
+              <caret line="151" column="28" lean-forward="false" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
               <folding>
-                <element signature="e#24#48#0" expanded="true" />
+                <element signature="e#24#78#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,7 +166,7 @@
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
-              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -214,17 +203,17 @@
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/animal.html" />
         <option value="$PROJECT_DIR$/wullum/wullum/urls.py" />
         <option value="$PROJECT_DIR$/wullum/animals/models.py" />
-        <option value="$PROJECT_DIR$/wullum/animals/views.py" />
         <option value="$PROJECT_DIR$/wullum/wullum/settings.py" />
         <option value="$PROJECT_DIR$/wullum/animals/forms.py" />
         <option value="$PROJECT_DIR$/wullum/animals/static/animals/styles.css" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/base.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/all.html" />
-        <option value="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/index.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/goats.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" />
+        <option value="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" />
+        <option value="$PROJECT_DIR$/wullum/animals/views.py" />
       </list>
     </option>
   </component>
@@ -255,122 +244,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extensions" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.intellij.database" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schema" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Extensions" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.intellij.database" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extractors" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="animals">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="wullum">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="animals">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="templates">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="animals">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -483,6 +356,122 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="animals" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="animals">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="wullum">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="animals">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="animals">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extensions" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.intellij.database" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schema" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Extensions" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.intellij.database" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extractors" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -963,7 +952,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487881558161</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Gør tabeller responsive på index, all, kaniner, høns, geder og afdøde">
+      <created>1487882612960</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1487882612960</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1053,7 +1049,8 @@
     <MESSAGE value="Test om form vil opdatere" />
     <MESSAGE value="Test gjorde intet. Går tilbage til gammel kode" />
     <MESSAGE value="Downloadet fonts til animals/static/animals. Lavet font-face i style.css og fjernet google-henvisninger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Downloadet fonts til animals/static/animals. Lavet font-face i style.css og fjernet google-henvisninger" />
+    <MESSAGE value="Gør tabeller responsive på index, all, kaniner, høns, geder og afdøde" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gør tabeller responsive på index, all, kaniner, høns, geder og afdøde" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1300,7 +1297,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
           <folding>
-            <element signature="e#639#680#0" expanded="true" />
+            <element signature="e#639#680#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1313,22 +1310,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wullum/animals/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding>
-            <element signature="e#24#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
           <folding>
-            <element signature="e#24#52#0" expanded="true" />
+            <element signature="e#24#52#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1354,25 +1341,15 @@
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/all.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="6996">
           <caret line="212" column="4" lean-forward="false" selection-start-line="212" selection-start-column="4" selection-end-line="212" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="116" column="10" lean-forward="false" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
@@ -1387,20 +1364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="235" column="12" lean-forward="false" selection-start-line="235" selection-start-column="12" selection-end-line="235" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="528">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -1409,7 +1376,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/goats.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1531">
+        <state relative-caret-position="3531">
           <caret line="107" column="12" lean-forward="false" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1419,10 +1386,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/dead.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
+        <state relative-caret-position="1007">
           <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2178">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7755">
+          <caret line="235" column="12" lean-forward="false" selection-start-line="235" selection-start-column="12" selection-end-line="235" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wullum/animals/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="151" column="28" lean-forward="false" selection-start-line="151" selection-start-column="28" selection-end-line="151" selection-end-column="28" />
           <folding>
-            <element signature="e#447#471#0#HTML" expanded="true" />
+            <element signature="e#24#78#0" expanded="true" />
           </folding>
         </state>
       </provider>

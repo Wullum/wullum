@@ -121,10 +121,10 @@ def animal(request, animal_name_slug):
             return HttpResponseRedirect('/animals/login')
 
     else:
-        form_w = AddWeight
-        form_a = KillAnimal
-        form = AddComment
-        form_g = RemoveAnimal
+        form_w = AddWeight()
+        form_a = KillAnimal()
+        form = AddComment()
+        form_g = RemoveAnimal()
 
 
     return render(request, 'animals/animal.html', {'one_animal': one_animal, 'form_a': form_a, 'form_g': form_g,

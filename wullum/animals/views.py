@@ -28,6 +28,10 @@ def index(request):
 def all(request):
     animal_list = Animals.objects.exclude(dead=True).order_by('-arrived')
 
+    return render(request, 'animals/all.html', {'animal_list': animal_list})
+
+@login_required
+def add_all(request):
     if request.method == 'POST':
 
         if request.user.is_authenticated:
@@ -48,7 +52,7 @@ def all(request):
     else:
         form = AddAnimal()
 
-    return render(request, 'animals/all.html', {'animal_list': animal_list, 'form': form})
+    return render(request, 'animals/add.html', {'form':form})
 
 
 def animal(request, animal_name_slug):
@@ -140,6 +144,10 @@ def dead(request):
 def rabbits(request):
     animal_list = Animals.objects.filter(species='Kanin').exclude(dead=True).exclude(gone=True).order_by('-arrived')
 
+    return render(request, 'animals/rabbits.html', {'animal_list': animal_list})
+
+@login_required
+def add_rabbit(request):
     if request.method == 'POST':
         form = AddRabbit(request.POST)
 
@@ -151,7 +159,7 @@ def rabbits(request):
 
                 animal.save()
 
-                return HttpResponseRedirect('')
+                return HttpResponseRedirect('/animals/rabbits')
 
             else:
                 print(form.errors)
@@ -161,12 +169,16 @@ def rabbits(request):
     else:
         form = AddRabbit()
 
-    return render(request, 'animals/rabbits.html', {'animal_list': animal_list, 'form': form})
+    return render(request, 'animals/add_rabbit.html', {'form': form})
 
 def chickens(request):
     chicken_list = Animals.objects.filter(species='Høne').exclude(dead=True).exclude(gone=True).order_by('-arrived')
     cock_list = Animals.objects.filter(species='Hane').exclude(dead=True).exclude(gone=True).order_by('-arrived')
 
+    return render(request, 'animals/chickens.html', {'chicken_list': chicken_list, 'cock_list': cock_list})
+
+@login_required
+def add_chicken(request):
     if request.method == 'POST':
         form = AddChicken(request.POST)
 
@@ -188,11 +200,15 @@ def chickens(request):
     else:
         form = AddChicken()
 
-    return render(request, 'animals/chickens.html', {'chicken_list': chicken_list, 'cock_list': cock_list, 'form': form})
+    return render(request, 'animals/add_chicken.html', {'form':form})
 
 def goats(request):
     animal_list = Animals.objects.filter(species='Ged').order_by('-arrived')
 
+    return render(request, 'animals/goats.html', {'animal_list': animal_list})
+
+@login_required
+def add_goat(request):
     if request.method == 'POST':
         form = AddGoat(request.POST)
 
@@ -213,7 +229,7 @@ def goats(request):
     else:
         form = AddGoat()
 
-    return render(request, 'animals/goats.html', {'animal_list': animal_list, 'form': form})
+    return render(request, 'animals/add_goat.html', {'form':form})
 
 def user_login(request):
     if request.method == 'POST':

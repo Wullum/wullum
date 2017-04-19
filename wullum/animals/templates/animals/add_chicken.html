@@ -1,0 +1,82 @@
+{% extends 'animals/base.html' %}
+
+{% block title %}Dyr!!{% endblock %}
+
+{% block body_block %}
+    <div class="greyfield">
+    <div class="container">
+        <h4>Tilføj høne</h4>
+
+        <form id="add_animal" method="post" enctype="multipart/form-data">
+            <div class="row">
+            <div class="six columns">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for hidden in form.hidden_fields %}
+                {{  hidden }}
+            {% endfor %}
+
+            <div class="fieldWrapper">
+                <label for="name">{{ form.animal_name.help_text }}</label>
+                {{ form.animal_name.errors }}
+                {{ form.animal_name }}
+            </div>
+            </div>
+            <div class="six columns">
+            <div class="fieldWrapper">
+                <label for="{{ form.species.id_for_label }}">{{ form.species.help_text }}</label>
+                {{ form.species.errors }}
+                {{ form.species }}
+            </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="six columns">
+                 <div class="fieldWrapper">
+                <label for="{{ form.born.id_for_label }}">{{ form.born.help_text }}</label>
+                {{ form.born.errors }}
+                {{ form.born }}
+                </div>
+            </div>
+            <div class="six columns">
+                <div class="fieldWrapper">
+                <label for="{{ form.arrived.id_for_label }}">{{ form.arrived.help_text }}</label>
+                {{ form.arrived.errors }}
+                {{ form.arrived }}
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="fieldWrapper">
+                <label for="{{ form.animal_characteristics.id_for_label }}">{{ form.animal_characteristics.help_text }}</label>
+                {{ form.animal_characteristics.errors }}
+                {{ form.animal_characteristics }}
+                </div>
+            </div>
+
+             <div class="row">
+            <div class="six columns">
+                 <div class="fieldWrapper">
+                <label for="{{ form.fur_colour.id_for_label }}">Fjerfarve*</label>
+                 {{ form.fur_colour.errors }}
+                 {{ form.fur_colour }}
+                </div>
+            </div>
+             <div class="two columns">
+                <div class="fieldWrapper">
+                    <label>Billede</label>
+                    {{ form.picture.errors }}
+                    {{ form.picture }}
+                </div>
+            </div>
+            </div>
+
+            <input class="button" name="submit" value="Tilføj Dyr" type="submit" />
+        </form>
+
+    </div>
+    </div>
+
+{% endblock %}

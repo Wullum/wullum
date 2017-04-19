@@ -184,3 +184,7 @@ a {
 @keyframes blinker {
   50% { opacity: 0; font-size: 1.9rem; }
 }
+
+.tilføj{
+  margin-top:6px;
+}

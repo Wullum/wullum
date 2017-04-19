@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="839f2ca3-ab4e-47e0-b88e-4e4be7b45420" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/goats.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/goats.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" afterPath="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" />
     </list>
     <ignored path="wullum.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dead.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dead.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/dead.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+            <state relative-caret-position="1023">
+              <caret line="49" column="10" lean-forward="false" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -129,7 +127,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rabbits.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rabbits.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
@@ -207,12 +205,12 @@
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/base.html" />
         <option value="$PROJECT_DIR$/wullum/animals/views.py" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/all.html" />
-        <option value="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/index.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/animal.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/chickens.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/goats.html" />
         <option value="$PROJECT_DIR$/wullum/animals/templates/animals/rabbits.html" />
+        <option value="$PROJECT_DIR$/wullum/animals/templates/animals/dead.html" />
       </list>
     </option>
   </component>
@@ -1022,7 +1020,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492613236162</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fikset billedupload for enkelte dyreracer">
+      <created>1492614311796</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1492614311796</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1088,7 +1093,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tilføjet forside. Linker til animals" />
     <MESSAGE value="Her er filerne til forsidens home-app også inkluderet" />
     <MESSAGE value="Nu virker kommentarene. Filter mangler stadig" />
     <MESSAGE value="Kill-knap-funktion tilføjet. Knappen fjernet fra forside. Kill list og kill count tilføjet" />
@@ -1113,7 +1117,8 @@
     <MESSAGE value="Ændret lidt i views med parenteser ved form-deklarering i /animal" />
     <MESSAGE value="Tjekker for om dyrekarakteristika er lig Null. White marks ændret til Ja/Nej" />
     <MESSAGE value="Flyttet pelsfarve til højre. Nested divs for kendetegn og for kommentarer og vægt. Ændret race til art" />
-    <option name="LAST_COMMIT_MESSAGE" value="Flyttet pelsfarve til højre. Nested divs for kendetegn og for kommentarer og vægt. Ændret race til art" />
+    <MESSAGE value="Fikset billedupload for enkelte dyreracer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset billedupload for enkelte dyreracer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1433,14 +1438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/dead.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/all.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -1471,6 +1468,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="9" column="73" lean-forward="false" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wullum/animals/templates/animals/dead.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1023">
+          <caret line="49" column="10" lean-forward="false" selection-start-line="49" selection-start-column="10" selection-end-line="49" selection-end-column="10" />
           <folding />
         </state>
       </provider>

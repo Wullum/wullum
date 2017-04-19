@@ -30,7 +30,11 @@
           <tr>
             <td><a href="/animals/{{ animal.slug }}">{{ animal.animal_name }}</a></td>
             <td>{{ animal.species }}</td>
-            <td>{{ animal.born }}</td>
+            {% if animal.born %}
+                <td>{{ animal.born }}</td>
+            {% else %}
+                <td>Ukendt</td>
+            {% endif %}
             <td>{{ animal.animal_characteristics }}</td>
             <td>{{ animal.fur_colour }}</td>
           </tr>

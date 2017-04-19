@@ -20,7 +20,11 @@
                 <h4>{{ one_animal }}</h4>
                 <ul>
                     <li>Race: {{ one_animal.species }}</li>
-                    <li>Født: {{ one_animal.born }}</li>
+                    {% if one_animal.born %}
+                        <li>Født: {{ one_animal.born }}</li>
+                    {% else %}
+                        <li>Født: Ukendt</li>
+                    {% endif %}
                     <li>Ankommet: {{ one_animal.arrived }}</li>
                     <li>Kendetegn: {{ one_animal.animal_characteristics }}</li>
                 </ul>
@@ -31,9 +35,21 @@
 
                 </ul>
                     <li>Pelsfarve: {{ one_animal.fur_colour }}</li>
-                    <li>Pelstype: {{ one_animal.fur_type }}</li>
-                    <li>Hvide tegninger: {{ one_animal.white_marks }}</li>
-                    <li>Øjenfarve: {{ one_animal.eye_colour }}</li>
+                    {% if one_animal.fur_type != '0' %}
+                        <li>Pelstype: {{ one_animal.fur_type }}</li>
+                    {% else %}
+                        <li>Pelstype: Ukendt</li>
+                    {% endif %}
+                    {% if one_animal.whitemarks == True %}
+                        <li>Hvide tegninger: Ja</li>
+                    {% else %}
+                        <li>Hvide tegninger: Nej</li>
+                    {% endif %}
+                    {% if one_animal.eye_colour != '0' %}
+                        <li>Øjenfarve: {{ one_animal.eye_colour }}</li>
+                    {% else %}
+                        <li>Øjenfarve: Ukendt</li>
+                    {% endif %}
                     <li>Genom: ({{ one_animal.genotype_a1 }},{{ one_animal.genotype_a2 }}) ({{ one_animal.genotype_b1 }},
                         {{ one_animal.genotype_b2 }}) ({{ one_animal.genotype_c1 }}, {{ one_animal.genotype_c2 }})
                         ({{ one_animal.genotype_d1 }}, {{ one_animal.genotype_d2 }}) ({{ one_animal.genotype_g1 }},

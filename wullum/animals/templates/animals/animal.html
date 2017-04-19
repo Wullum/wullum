@@ -6,6 +6,9 @@
     <div class="greyfield">
     <div class="container">
         <div class="row">
+            <h4 class="u-full-width">{{ one_animal }}</h4>
+        </div>
+        <div class="row">
             <div class="four columns billede">
                 {% if one_animal.picture%}
                     <img class="profilbillede" src="{{ MEDIA_URL }}{{ one_animal.picture }}"
@@ -16,25 +19,26 @@
                 {% endif %}
             </div>
 
+            <div class="eight columns">
+            <div class="row">
             <div class="four columns">
-                <h4>{{ one_animal }}</h4>
                 <ul>
-                    <li>Race: {{ one_animal.species }}</li>
+                    <li>Art: {{ one_animal.species }}</li>
                     {% if one_animal.born %}
                         <li>Født: {{ one_animal.born }}</li>
                     {% else %}
                         <li>Født: Ukendt</li>
                     {% endif %}
                     <li>Ankommet: {{ one_animal.arrived }}</li>
-                    <li>Kendetegn: {{ one_animal.animal_characteristics }}</li>
+                    <li>Pelsfarve: {{ one_animal.fur_colour }}</li>
                 </ul>
             </div>
 
-            <div class="four columns">
+            <div class="eight columns">
                 {% if one_animal.species == "Kanin" %}
 
                 </ul>
-                    <li>Pelsfarve: {{ one_animal.fur_colour }}</li>
+
                     {% if one_animal.fur_type != '0' %}
                         <li>Pelstype: {{ one_animal.fur_type }}</li>
                     {% else %}
@@ -59,6 +63,16 @@
 
                 {% endif %}
             </div>
+        </div>
+
+        <div class="row">
+            <div class="twelve columns">
+                <ul>
+                 <li>Kendetegn: {{ one_animal.animal_characteristics }}</li>
+                </ul>
+            </div>
+        </div>
+        </div>
         </div>
 
         <div class="row">
@@ -107,12 +121,13 @@
 
             </div>
         </div>
+        </div>
     </div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="six columns">
+            <div class="seven columns">
                 <h4>Kommentarer</h4>
 
                 <form id="add_comment" method="post">
@@ -142,9 +157,24 @@
 
                     <input class="button" name="submit_comment" value="Tilføj kommentar" type="submit"/>
                 </form>
+
+                {% if comment_list %}
+                <table class="u-full-width">
+                {% for comment in comment_list %}
+                    <tbody>
+                    <tr>
+                        <td>{{ comment.comments_date }}</td>
+                        <td>{{ comment.comment }}</td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+                {% else %}
+                <p>Der er ingen kommentarer...</p>
+                {% endif %}
             </div>
 
-            <div class="six columns">
+            <div class="five columns">
             <h4>Vægt</h4>
 
             <form id="add_weight" method="post">
@@ -175,29 +205,7 @@
                 <input class="button" name="submit_weight" value="Tilføj vægtmåling" type="submit"/>
             </form>
 
-            </div>
-            </div>
-
-        <div class="row">
-            <div class="one-half column">
-                {% if comment_list %}
-                <table class="u-full-width">
-                {% for comment in comment_list %}
-                    <tbody>
-                    <tr>
-                        <td>{{ comment.comments_date }}</td>
-                        <td>{{ comment.comment }}</td>
-                    </tr>
-                    </tbody>
-                {% endfor %}
-                </table>
-                {% else %}
-                <p>Der er ingen kommentarer...</p>
-                {% endif %}
-            </div>
-
-            <div class="one-half column">
-                {% if weight_list %}
+            {% if weight_list %}
                 <table class="u-full-width">
                 {% for weight in weight_list %}
                     <tbody>
@@ -211,8 +219,8 @@
                 {% else %}
                 <p>Der er ingen vægte målt...</p>
                 {% endif %}
-            </div>
 
+            </div>
         </div>
 
     </div>

@@ -6,7 +6,12 @@
     <div class="greyfield">
     <div class="container">
         <div class="row">
-            <h4 class="u-full-width">{{ one_animal }}</h4>
+            <div class="ten columns">
+                <h4 class="u-full-width">{{ one_animal }}</h4>
+            </div>
+            <div class="two columns">
+                <a class="button button-primary tilføj" href="/animals/{{ one_animal.slug }}/update/">Rediger info</a>
+            </div>
         </div>
         <div class="row">
             <div class="four columns billede">
@@ -167,6 +172,7 @@
                     <tr>
                         <td>{{ comment.comments_date }}</td>
                         <td>{{ comment.comment }}</td>
+                        <td><a class="button button-primary" href="/animals/{{ one_animal.slug }}/comments/{{ comment.pk }}/">Ret</a></td>
                     </tr>
                     </tbody>
                 {% endfor %}
@@ -214,6 +220,7 @@
                     <tr>
                         <td>{{ weight.weight_date }}</td>
                         <td>{{ weight.weight }} kg</td>
+                        <td><a class="button button-primary" href="/animals/{{ one_animal.slug }}/weights/{{ weight.pk }}/">Ret</a></td>
                     </tr>
                     </tbody>
                 {% endfor %}

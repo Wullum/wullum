@@ -17,4 +17,7 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^(?P<animal_name_slug>[\w\-]+)/$', views.animal, name='animal'),
+    url(r'^(?P<animal_name_slug>[\w\-]+)/update/$', views.update, name='update'),
+    url(r'^(?P<animal_name_slug>[\w\-]+)/comments/(?P<comment_id>[\w\-]+)/$', views.comment_update, name='comment_update'),
+    url(r'^(?P<animal_name_slug>[\w\-]+)/weights/(?P<weight_id>[\w\-]+)/$', views.weight_update, name='weight_update'),
 ]

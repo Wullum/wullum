@@ -1,0 +1,39 @@
+{% extends 'animals/base.html' %}
+
+{% block title %}Dyr!!{% endblock %}
+
+{% block body_block %}
+    <div class="greyfield">
+    <div class="container">
+        <h4>Ret vægt</h4>
+
+            <form id="add_weight" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for hidden in form.hidden_fields %}
+                    {{  hidden }}
+                {% endfor %}
+
+                <div class="fieldWrapper">
+                    <label for="name">Skriv vægt her</label>
+                    {{ form.weight.errors }}
+                    {{ form.weight }}
+                </div>
+
+                <div class=fieldWrapper">
+                    <label for="name">Skriv dato her</label>
+                    {{ form.weight_date.errors }}
+                    {{ form.weight_date }}
+                </div>
+
+                <div class="fieldWrapper hidden">
+                    <label for="name">{{ form_w.animals_w.help_text }}</label>
+                    {{ form.animals_w.errors }}
+                    {{ form.animals_w }}
+                </div>
+
+                <input class="button" name="submit_weight" value="Ret vægtmåling" type="submit"/>
+            </form>
+    </div>
+    </div>
+{% endblock %}

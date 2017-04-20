@@ -1,0 +1,39 @@
+{% extends 'animals/base.html' %}
+
+{% block title %}Dyr!!{% endblock %}
+
+{% block body_block %}
+    <div class="greyfield">
+    <div class="container">
+        <h4>Rediger kommentar</h4>
+
+        <form id="add_comment" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for hidden in form.hidden_fields %}
+                    {{  hidden }}
+                {% endfor %}
+
+                <div class="fieldWrapper">
+                    <label for="name">{{ form.comment.help_text }}</label>
+                    {{ form.comment.errors }}
+                    {{ form.comment }}
+                </div>
+
+                <div class="fieldWrapper hidden">
+                    <label for="name">{{ form.comments_date.help_text }}</label>
+                    {{ form.comment_date.errors }}
+                    {{ form.comments_date }}
+                </div>
+
+                <div class="fieldWrapper hidden">
+                    <label for="name">{{ form.animals.help_text }}</label>
+                    {{ form.animals.errors }}
+                    {{ form.animals }}
+                </div>
+
+                <input class="button" name="submit_comment" value="Ret kommentar" type="submit"/>
+        </form>
+    </div>
+    </div>
+{% endblock %}

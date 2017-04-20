@@ -134,6 +134,32 @@ def animal(request, animal_name_slug):
     return render(request, 'animals/animal.html', {'one_animal': one_animal, 'form_a': form_a, 'form_g': form_g,
                         'form': form, 'form_w': form_w, 'comment_list': comment_list, 'weight_list': weight_list})
 
+@login_required
+def update(request, animal_name_slug):
+    one_animal = get_object_or_404(Animals, slug=animal_name_slug)
+
+    if request.method == "POST":
+
+        if request.user.is_authenticated:
+            form = AddAnimal(request.POST, request.FILES, instance=one_animal)
+            if form.is_valid():
+                animal = form.save(commit=False)
+                if 'picture' in request.FILES:
+                    animal.picture = request.FILES['picture']
+
+                animal.save()
+
+                return index(request)
+            else:
+                print(form.errors)
+        else:
+            return HttpResponseRedirect('/animals/login')
+
+    else:
+        form = AddAnimal(instance=one_animal)
+
+    return render(request, 'animals/update.html', {'one_animal':one_animal, 'form':form})
+
 def dead(request):
     animal_list = Animals.objects.filter(dead=True).exclude(gone=True).order_by('-departure')
 
@@ -230,6 +256,52 @@ def add_goat(request):
         form = AddGoat()
 
     return render(request, 'animals/add_goat.html', {'form':form})
+
+@login_required
+def comment_update(request, animal_name_slug, comment_id):
+    one_animal = get_object_or_404(Animals, slug=animal_name_slug)
+    comment_instance = get_object_or_404(Comments, pk=comment_id)
+
+    if request.method == 'POST':
+        form = AddComment(request.POST, instance=comment_instance)
+
+        if request.user.is_authenticated:
+            if form.is_valid():
+                form.save()
+
+                return HttpResponseRedirect('/animals/all')
+            else:
+                print(form.errors)
+        else:
+            return HttpResponseRedirect('/animals/login')
+
+    else:
+        form = AddComment(instance=comment_instance)
+
+    return render(request, 'animals/update_comment.html', {'form':form, 'one_animal':one_animal, 'comment_instance':comment_instance})
+
+@login_required
+def weight_update(request, animal_name_slug, weight_id):
+    one_animal = get_object_or_404(Animals, slug=animal_name_slug)
+    weight_instance = get_object_or_404(Weights, pk=weight_id)
+
+    if request.method == 'POST':
+        form = AddWeight(request.POST, instance=weight_instance)
+
+        if request.user.is_authenticated:
+            if form.is_valid():
+                form.save()
+
+                return HttpResponseRedirect('/animals/all')
+            else:
+                print(form.errors)
+        else:
+            return HttpResponseRedirect('/animals/login')
+
+    else:
+        form = AddWeight(instance=weight_instance)
+
+    return render(request, 'animals/update_weight.html', {'form':form, 'one_animal':one_animal, 'weight_instance':weight_instance})
 
 def user_login(request):
     if request.method == 'POST':

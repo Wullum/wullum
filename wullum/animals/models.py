@@ -29,9 +29,9 @@ class Animals(models.Model):
     white_marks = models.BooleanField('Hvide tegn', editable=True, default=False)
     eye_colour = models.CharField(max_length=100, null=True, blank=True)
     male = models.BooleanField('male', editable=True, default=False)
-    father = models.ForeignKey('self', on_delete=models.CASCADE, limit_choices_to={'male':True}, null=True, blank=True)
-    mother = models.ForeignKey('self', on_delete=models.CASCADE, limit_choices_to={'male':False}, null=True, blank=True)
-    litter = models.ForeignKey(Litter,on_delete=models.CASCADE, null=True, blank=True)
+    father = models.ForeignKey('self', related_name='far', on_delete=models.CASCADE, limit_choices_to={'male':True}, null=True, blank=True)
+    mother = models.ForeignKey('self', related_name='mor', on_delete=models.CASCADE, limit_choices_to={'male':False}, null=True, blank=True)
+    litter = models.ForeignKey('Litter', on_delete=models.CASCADE, null=True, blank=True)
     genotype_a1 = models.CharField(max_length = 50, null=True, blank=True)
     genotype_a2 = models.CharField(max_length = 50, null=True, blank=True)
     genotype_b1 = models.CharField(max_length = 50, null=True, blank=True)
@@ -111,15 +111,30 @@ class Eggs(models.Model):
         verbose_name_plural = "Eggs"
 
 class Litter(models.Model):
-    father_l = models.ForeignKey('self', on_delete=models.CASCADE, limit_choices_to={'male':True}, null=True, blank=True)
-    mother_l = models.ForeignKey('self', on_delete=models.CASCADE, limit_choices_to={'male':False}, null=True, blank=True)
+    father_l = models.ForeignKey('self', related_name='far_l', on_delete=models.CASCADE, limit_choices_to={'male':True}, null=True, blank=True)
+    mother_l = models.ForeignKey('self', related_name='mor_l', on_delete=models.CASCADE, limit_choices_to={'male':False}, null=True, blank=True)
     litter_name = models.CharField('Navn', max_length=200)
     birth_count = models.IntegerField('Antal ved fødsel', default=0)
     litter_characteristics = models.TextField('Kulbeskrivelse', max_length=500)
     born_l = models.DateField('Fødselsdato', editable=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if self.id is None:
+            self.slug = slugify(self.litter_name)
+        self.slug = slugify(self.litter_name)
+        super(Litter, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.litter_name
+
+    class Meta:
+        verbose_name_plural = "Litter"
 
 class LitterWeight(models.Model):
     litter_w = models.ForeignKey(Litter, on_delete=models.CASCADE)
     weight_date = models.DateField('Vægtdato', editable=True, blank=True, null=True)
     weight = models.DecimalField('Vægt', max_digits=6, decimal_places=3, default=0)
     number = models.IntegerField('Antal', default=0)
+
+    class Meta:
+        verbose_name_plural = "LitterWeight"

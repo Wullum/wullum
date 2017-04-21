@@ -122,8 +122,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wullum/animals/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="33" column="85" lean-forward="false" selection-start-line="33" selection-start-column="85" selection-end-line="33" selection-end-column="85" />
+            <state relative-caret-position="851">
+              <caret line="127" column="31" lean-forward="false" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -1073,7 +1073,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492760532693</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Tilføjet priser, slagtet, slettet, køn, forældre, kuld og kuldvægte til modeller. IKKE MIGRERET">
+      <created>1492763567916</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1492763567916</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1117,7 +1124,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tilføjet ged-funktion, tilføjet billed-upload, tilføjet login og logud, samt begrænsning på forms" />
     <MESSAGE value="Tilføjet media-mappe" />
     <MESSAGE value="Tilføget billed-funktion og fjernet konkrete billeder" />
     <MESSAGE value="Fjernet alle objekter undtagen brugere. Gjort animals til startside" />
@@ -1142,7 +1148,8 @@
     <MESSAGE value="Opdeler dyreoversigterne og tilføj dyr-funktionerne på to sider." />
     <MESSAGE value="Tilføjet rettefunktioner til dyr, kommentarer og vægt" />
     <MESSAGE value="Lavet migrations for registrering. Migrate med --fake og derefter normal migrate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lavet migrations for registrering. Migrate med --fake og derefter normal migrate" />
+    <MESSAGE value="Tilføjet priser, slagtet, slettet, køn, forældre, kuld og kuldvægte til modeller. IKKE MIGRERET" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tilføjet priser, slagtet, slettet, køn, forældre, kuld og kuldvægte til modeller. IKKE MIGRERET" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1503,8 +1510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wullum/animals/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="33" column="85" lean-forward="false" selection-start-line="33" selection-start-column="85" selection-end-line="33" selection-end-column="85" />
+        <state relative-caret-position="851">
+          <caret line="127" column="31" lean-forward="false" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="31" />
           <folding />
         </state>
       </provider>

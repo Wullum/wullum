@@ -169,6 +169,16 @@ class RemoveAnimal(forms.ModelForm):
         model = Animals
         fields = ('gone',)
 
+class SellAnimal(forms.ModelForm):
+    departure = forms.DateField(initial=timezone.now(), help_text='Vælg dato')
+    sold_comment = forms.CharField(widget=forms.Textarea, max_length=400, help_text='Skriv beskrivelse her')
+    sold_price = forms.DecimalField(min_value=0.00)
+    sold = forms.BooleanField(widget=forms.HiddenInput(), initial=True)
+
+    class Meta:
+        model = Animals
+        fields = ('departure', 'sold_comment', 'sold_price', 'sold')
+
 class AddRabbit(forms.ModelForm):
     animal_name = forms.CharField(max_length=200, help_text="Navn*")
     animal_name.widget.attrs.update({'class': 'u-full-width', 'id':'name'})

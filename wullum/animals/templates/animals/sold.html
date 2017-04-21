@@ -6,12 +6,11 @@
     <div class="greyfield">
     <div class="container">
     <div class="row">
-    <h4 class="inline">Kill list</h4>
-    {% if animal_list and user.is_authenticated %}
-        <div class="">
-            <p class="inline_right kill_count">KILL COUNT: <span class="flashing">{{ kill_count }}</span></p>
-        </div>
-    {% endif %}
+    <h4 class="inline">Solgte dyr</h4>
+    </div>
+    <div class="row">
+        <p>Vi har solgt <strong>{{ sale_count }} dyr</strong> og samlet tjent <strong>
+            {{ total_earned.sold_price__sum }}kr.</strong></p>
     </div>
     <div class="row">
     {% if animal_list %}
@@ -22,8 +21,9 @@
             <th>Navn</th>
             <th>Art</th>
             <th>Født</th>
-            <th>Død</th>
-            <th>Kendetegn</th>
+            <th>Salgsdato</th>
+            <th>Pris</th>
+            <th>Kommentar</th>
           </tr>
         </thead>
         <tbody>
@@ -37,14 +37,15 @@
                 <td>Ukendt</td>
             {% endif %}
             <td>{{ animal.departure }}</td>
-            <td>{{ animal.animal_characteristics }}</td>
+            <td>{{ animal.sold_price }}</td>
+            <td>{{ animal.sold_comment }}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
       </div>
     {% else %}
-      <p>Ingen dyr er døde endnu :(</p>
+      <p>Ingen dyr er solgt endnu :(</p>
     {% endif %}
     </div>
 

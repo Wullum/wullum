@@ -4,14 +4,15 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.db.models import Sum
 
-from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal, AddRabbit, AddChicken, AddGoat
+from .forms import AddAnimal, AddComment, AddWeight, KillAnimal, RemoveAnimal, AddRabbit, AddChicken, AddGoat, SellAnimal
 from .models import Animals, FoodPurchases, MiscPurchases, Eggs, Comments, Weights, UserProfile
 
 
 # Create your views here.
 def index(request):
-    animal_list = Animals.objects.exclude(dead=True).exclude(gone=True).order_by('species', '-arrived')
+    animal_list = Animals.objects.exclude(dead=True).exclude(gone=True).exclude(sold=True).order_by('species', '-arrived')
 
     kill_count = Animals.objects.filter(dead=True).count()
 
@@ -26,7 +27,7 @@ def index(request):
 
 
 def all(request):
-    animal_list = Animals.objects.exclude(dead=True).order_by('-arrived')
+    animal_list = Animals.objects.exclude(dead=True).exclude(gone=True).exclude(sold=True).order_by('-arrived')
 
     return render(request, 'animals/all.html', {'animal_list': animal_list})
 
@@ -124,15 +125,30 @@ def animal(request, animal_name_slug):
         else:
             return HttpResponseRedirect('/animals/login')
 
+    elif request.method == "POST" and "submit_sold" in request.POST:
+        form_s = SellAnimal(request.POST, instance=one_animal)
+
+        if request.user.is_authenticated:
+            if form_s.is_valid():
+                form_s.save()
+
+                return HttpResponseRedirect('/animals/sold')
+            else:
+                print(form_s.errors)
+        else:
+            return HttpResponseRedirect('animals/login')
+
     else:
         form_w = AddWeight()
         form_a = KillAnimal()
         form = AddComment()
         form_g = RemoveAnimal()
+        form_s = SellAnimal()
 
 
     return render(request, 'animals/animal.html', {'one_animal': one_animal, 'form_a': form_a, 'form_g': form_g,
-                        'form': form, 'form_w': form_w, 'comment_list': comment_list, 'weight_list': weight_list})
+                        'form': form, 'form_w': form_w, 'form_s':form_s, 'comment_list': comment_list,
+                        'weight_list': weight_list})
 
 @login_required
 def update(request, animal_name_slug):
@@ -167,8 +183,18 @@ def dead(request):
 
     return render(request, 'animals/dead.html', {'animal_list': animal_list, 'kill_count':kill_count})
 
+def sold(request):
+    animal_list = Animals.objects.filter(sold=True).exclude(gone=True).order_by('-departure')
+
+    sale_count = Animals.objects.filter(sold=True).count()
+
+    total_earned = Animals.objects.filter(sold=True).exclude(gone=True).aggregate(Sum('sold_price'))
+
+    return render(request, 'animals/sold.html', {'animal_list': animal_list, 'sale_count':sale_count,
+                                                 'total_earned':total_earned})
+
 def rabbits(request):
-    animal_list = Animals.objects.filter(species='Kanin').exclude(dead=True).exclude(gone=True).order_by('-arrived')
+    animal_list = Animals.objects.filter(species='Kanin').exclude(dead=True).exclude(gone=True).exclude(sold=True).order_by('-arrived')
 
     return render(request, 'animals/rabbits.html', {'animal_list': animal_list})
 
@@ -198,8 +224,8 @@ def add_rabbit(request):
     return render(request, 'animals/add_rabbit.html', {'form': form})
 
 def chickens(request):
-    chicken_list = Animals.objects.filter(species='Høne').exclude(dead=True).exclude(gone=True).order_by('-arrived')
-    cock_list = Animals.objects.filter(species='Hane').exclude(dead=True).exclude(gone=True).order_by('-arrived')
+    chicken_list = Animals.objects.filter(species='Høne').exclude(dead=True).exclude(gone=True).exclude(sold=True).order_by('-arrived')
+    cock_list = Animals.objects.filter(species='Hane').exclude(dead=True).exclude(gone=True).exclude(sold=True).order_by('-arrived')
 
     return render(request, 'animals/chickens.html', {'chicken_list': chicken_list, 'cock_list': cock_list})
 
@@ -229,7 +255,7 @@ def add_chicken(request):
     return render(request, 'animals/add_chicken.html', {'form':form})
 
 def goats(request):
-    animal_list = Animals.objects.filter(species='Ged').order_by('-arrived')
+    animal_list = Animals.objects.filter(species='Ged').exclude(dead=True).exclude(gone=True).exclude(sold=True).order_by('-arrived')
 
     return render(request, 'animals/goats.html', {'animal_list': animal_list})
 

@@ -85,7 +85,7 @@
         <div class="row">
             <div class="one-half column">
 
-                    {% if one_animal.dead == False %}
+                    {% if one_animal.dead == False and one_animal.sold == False %}
                         <form id="kill_animals" method="post">
                         {% csrf_token %}
                         {{ form_a.non_field_errors }}
@@ -104,11 +104,12 @@
                         </div>
                         <input class="button" name="submit_kill" value="KILL" type="submit"/>
                         </form>
-                    {% else %}
+                    {% elif one_animal.dead == True and one_animal.sold == False %}
                         <p><strong>{{ one_animal.departure }} døde {{ one_animal.animal_name }}</strong></p>
                     {% endif %}
 
             </div>
+
 
             <div class="one-half column">
 
@@ -125,6 +126,49 @@
                         </div>
                     <input class="button" name="submit_gone" value="Remove" type="submit"/>
                     </form>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="ten columns">
+
+                {% if one_animal.sold == False %}
+                <form id="submit_sold" method="post">
+                    {% csrf_token %}
+                    {{ form_s.non_field_errors }}
+                    {% for hidden in form_s.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+
+                    <div class="fieldWrapper inline">
+                        <label for="name">Salgsdato</label>
+                        {{ form_s.departure.errors }}
+                        {{ form_s.departure }}
+                    </div>
+
+                    <div class="fieldWrapper inline">
+                        <label for="name">Pris</label>
+                        {{ form_s.sold_price.errors }}
+                        {{ form_s.sold_price }}
+                    </div>
+
+                    <div class="fieldWrapper inline">
+                        <label for="name">Kommentar til salg</label>
+                        {{ form_s.sold_comment.errors }}
+                        {{ form_s.sold_comment }}
+                    </div>
+
+                    <div class="fieldWrapper inline">
+                        {{ form_s.sold.errors }}
+                        {{ form_s.sold }}
+                    </div>
+                <input class="button button-margin" name="submit_sold" value="Sell" type="submit"/>
+                </form>
+                {% else %}
+                    <p><strong>{{ one_animal.departure }} blev {{ one_animal.animal_name }} solgt for
+                        {{ one_animal.sold_price }}kr.</strong></p>
+                {% endif %}
 
             </div>
         </div>
